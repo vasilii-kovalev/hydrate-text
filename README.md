@@ -17,7 +17,7 @@ console.log(hydrateText(text2, ['run tests', 'make tea']));
 
 ## Features
 * Dependency-free
-* Light-weight (597 bytes)
+* Light-weight (597 bytes gzipped)
 * Works with variables as an object and an array
 * Strongly typed with TypeScript
 
