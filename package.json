@@ -1,0 +1,40 @@
+{
+  "name": "hydrate-text",
+  "version": "1.0.0",
+  "description": "Tiny library for dynamic text hydrating",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vasilii-kovalev/hydrate-text.git"
+  },
+  "keywords": [
+    "javascript",
+    "typescript",
+    "zero-dependency",
+    "text"
+  ],
+  "author": "Vasilii Kovalev <vasya.kowalev@yandex.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vasilii-kovalev/hydrate-text/issues"
+  },
+  "homepage": "https://github.com/vasilii-kovalev/hydrate-text#readme",
+  "devDependencies": {
+    "@types/jest": "^25.2.2",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.0.0",
+    "typescript": "^3.9.2"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  }
+}
