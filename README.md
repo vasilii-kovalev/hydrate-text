@@ -9,13 +9,13 @@ Tiny library for dynamic text hydrating
 [build-badge]: https://github.com/vasilii-kovalev/hydrate-text/workflows/build-test/badge.svg?branch-master
 [build]: https://github.com/vasilii-kovalev/hydrate-text/actions?query=workflow%3Abuild-test+branch%3Amaster
 
-[coverage-badge]: https://img.shields.io/codecov/c/github/vasilii-kovalev/hydrate-text.svg?style=flat-square
+[coverage-badge]: https://img.shields.io/codecov/c/github/vasilii-kovalev/hydrate-text.svg
 [coverage]: https://codecov.io/github/vasilii-kovalev/hydrate-text
 
-[version-badge]: https://img.shields.io/npm/v/hydrate-text.svg?style=flat-square
+[version-badge]: https://img.shields.io/npm/v/hydrate-text.svg
 [package]: https://www.npmjs.com/package/hydrate-text
 
-[license-badge]: https://img.shields.io/npm/l/hydrate-text.svg?style=flat-square
+[license-badge]: https://img.shields.io/npm/l/hydrate-text.svg
 [license]: https://github.com/vasilii-kovalev/hydrate-text/blob/master/LICENSE
 
 ## Example
