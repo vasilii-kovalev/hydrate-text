@@ -3,7 +3,7 @@
 
 name: build-test
 
-on: ["push", "pull_request"]
+on: ["push"]
 
 jobs:
   test-and-build:
