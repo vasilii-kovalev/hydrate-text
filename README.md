@@ -41,6 +41,17 @@ Tiny library for dynamic text hydrating
 [vulnerabilities-badge]: https://snyk.io/test/github/vasilii-kovalev/hydrate-text/badge.svg?targetFile=package.json
 [vulnerabilities]: https://snyk.io/test/github/vasilii-kovalev/hydrate-text?targetFile=package.json
 
+## Installation
+```shell
+npm install hydrate-text
+```
+
+## Features
+* Dependency-free
+* Light-weight
+* Works with variables as an object and an array
+* Strongly typed with TypeScript
+
 ## Example
 ```typescript
 import { hydrateText } from 'hydrate-text';
@@ -53,15 +64,4 @@ console.log(hydrateText(text1, { username: 'John Doe' }));
 
 // 'I have to run tests and make tea.'
 console.log(hydrateText(text2, ['run tests', 'make tea']));
-```
-
-## Features
-* Dependency-free
-* Light-weight
-* Works with variables as an object and an array
-* Strongly typed with TypeScript
-
-## Installation
-```shell
-npm install hydrate-text
 ```
