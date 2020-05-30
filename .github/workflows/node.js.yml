@@ -34,4 +34,4 @@ jobs:
       - name: Codecov
         uses: codecov/codecov-action@v1.0.7
         with:
-          file: coverage
+          file: coverage/clover.xml
