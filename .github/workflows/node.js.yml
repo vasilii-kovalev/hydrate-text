@@ -20,8 +20,8 @@ jobs:
           node-version: 12.x
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install dependencies
-        run: npm install
+      - name: Install dependencies and build
+        run: npm ci
       - name: Test
         run: npm run test
       - name: Upload artifactory
@@ -29,8 +29,6 @@ jobs:
         with:
           name: coverage
           path: ./coverage
-      - name: Build
-        run: npm run build
   codecov:
     name: 'Upload coverage'
     needs: test-and-build
