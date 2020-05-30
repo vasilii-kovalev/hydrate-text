@@ -10,21 +10,41 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-    runs-on: ${{ matrix.operating-system }}
-    strategy:
-      matrix:
-        operating-system: [ubuntu-latest, windows-latest]
+  test-and-build:
+    name: 'Test and build'
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup node 12
+      - name: Setup Node.js v.12
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - run: npm ci
-      - run: npm test
-      - name: Codecov
-        uses: codecov/codecov-action@v1.0.7
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Test
+        run: npm run test
+      - name: Upload artifactory
+        uses: actions/upload-artifact@v1
         with:
-          file: coverage/coverage-final.json
-          flags: unittests
+          name: coverage
+          path: ./coverage
+      - name: Build
+        run: npm run build
+  codecov:
+    name: 'Upload coverage'
+    needs: test-and-build
+    runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+        - name: Download artifactory
+          uses: actions/download-artifact@v1
+          with:
+            name: coverage
+            path: ./coverage
+        - name: Upload to Codecov
+          uses: codecov/codecov-action@v1.0.7
+          with:
+            file: coverage/coverage-final.json
+            flags: unittests
