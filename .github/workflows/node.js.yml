@@ -23,3 +23,5 @@ jobs:
           node-version: 12.x
       - run: npm ci
       - run: npm test
+      - name: Codecov
+        uses: codecov/codecov-action@v1.0.7
