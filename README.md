@@ -25,7 +25,7 @@ Tiny library for dynamic text hydrating
 
 [min-size-badge]: https://badgen.net/bundlephobia/min/hydrate-text
 [minzip-size-badge]: https://badgen.net/bundlephobia/minzip/hydrate-text
-[size]: https://bundlephobia.com/result?p=hydrate-text
+[size]: https://bundlephobia.com/result?p=hydrate-text@latest
 
 [dependencies-badge]: https://david-dm.org/vasilii-kovalev/hydrate-text.svg
 [dependencies]: https://david-dm.org/vasilii-kovalev/hydrate-text
