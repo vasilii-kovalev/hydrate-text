@@ -3,7 +3,7 @@ Tiny library for dynamic text hydrating
 
 [![Version][version-badge]][package]
 [![MIT License][license-badge]][license]
-[![GitHub Release][releases-badge]][releases]
+[![GitHub Release][release-badge]][release]
 
 [![Minified size][min-size-badge]][size]
 [![Minified and gzipped size][minzip-size-badge]][size]
@@ -17,8 +17,8 @@ Tiny library for dynamic text hydrating
 [version-badge]: https://img.shields.io/npm/v/hydrate-text.svg
 [package]: https://www.npmjs.com/package/hydrate-text
 
-[releases-badge]: https://img.shields.io/github/v/release/vasilii-kovalev/hydrate-text.svg
-[releases]: https://github.com/vasilii-kovalev/hydrate-text/releases
+[release-badge]: https://img.shields.io/github/v/release/vasilii-kovalev/hydrate-text.svg
+[release]: https://github.com/vasilii-kovalev/hydrate-text/releases
 
 [license-badge]: https://img.shields.io/npm/l/hydrate-text.svg
 [license]: https://github.com/vasilii-kovalev/hydrate-text/blob/master/LICENSE
