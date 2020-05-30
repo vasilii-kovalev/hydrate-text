@@ -1,6 +1,6 @@
 {
   "name": "hydrate-text",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Tiny library for dynamic text hydrating",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
