@@ -38,7 +38,7 @@
     "testEnvironment": "node",
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "index.ts"
+      "src/index.ts"
     ],
     "coverageDirectory": "./coverage"
   }
