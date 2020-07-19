@@ -20,7 +20,8 @@ jobs:
         run: npm ci
       - name: Test
         run: npm run test
+      - uses: nelonoel/branch-name@v1
       - name: Upload coverage
-        uses: coverallsapp/github-action@master
+        uses: coverallsapp/github-action@${BRANCH_NAME}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
