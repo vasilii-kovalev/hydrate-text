@@ -78,6 +78,9 @@ console.log(hydrateText(route, { userId: 1 }, { start: ':' }));
 /* Can be configured */
 import { configureHydrateText } from 'hydrate-text';
 
+const route = '/users/:userId';
+const routeWithDifferentBorders = '/users/(userId)';
+
 const replaceRouteVariables = configureHydrateText({ start: ':' });
 
 // '/users/1'
