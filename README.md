@@ -7,11 +7,12 @@ Tiny library for dynamic text hydrating
 
 [![Minified size][min-size-badge]][size]
 [![Minified and gzipped size][minzip-size-badge]][size]
-[![Dependecy Status][dependencies-badge]][dependencies]
+[![Dependencies Status][dependencies-badge]][dependencies]
 [![devDependencies Status][dev-dependencies-badge]][dev-dependencies]
 
 [![Build Status][build-badge]][build]
 [![Code Coverage][coverage-badge]][coverage]
+[![Maintainability][maintainability-badge]][maintainability]
 [![Known Vulnerabilities][vulnerabilities-badge]][vulnerabilities]
 
 [version-badge]: https://img.shields.io/npm/v/hydrate-text.svg
@@ -35,6 +36,9 @@ Tiny library for dynamic text hydrating
 [build-badge]: https://github.com/vasilii-kovalev/hydrate-text/workflows/build-test/badge.svg?branch=master
 [build]: https://github.com/vasilii-kovalev/hydrate-text/actions?query=workflow%3Abuild-test+branch%3Amaster
 
+[maintainability-badge]: https://api.codeclimate.com/v1/badges/26bb75b93d63c800e6ae/maintainability
+[maintainability]: https://codeclimate.com/github/vasilii-kovalev/hydrate-text/maintainability
+
 [coverage-badge]: https://coveralls.io/repos/github/vasilii-kovalev/hydrate-text/badge.svg?branch=master
 [coverage]: https://coveralls.io/github/vasilii-kovalev/hydrate-text?branch=master
 
@@ -50,6 +54,7 @@ npm install hydrate-text
 * Dependency-free
 * Light-weight
 * Works with variables as an object and an array
+* Flexible variable syntax change
 * Strongly typed with TypeScript
 
 ## Example
@@ -58,10 +63,33 @@ import { hydrateText } from 'hydrate-text';
 
 const text1 = 'Hello, {username}!';
 const text2 = 'I have to {0} and {1}.';
+const route = '/users/:userId';
+const routeWithDifferentBorders = '/users/(userId)';
 
 // 'Hello, John Doe!'
 console.log(hydrateText(text1, { username: 'John Doe' }));
 
 // 'I have to run tests and make tea.'
 console.log(hydrateText(text2, ['run tests', 'make tea']));
+
+// '/users/1'
+console.log(hydrateText(route, { userId: 1 }, { start: ':' }));
+
+/* Can be configured */
+import { configureHydrateText } from 'hydrate-text';
+
+const replaceRouteVariables = configureHydrateText({ start: ':' });
+
+// '/users/1'
+replaceRouteVariables(route, { userId: 1 });
+
+// '/users/1'
+replaceRouteVariables(
+  routeWithDifferentBorders,
+  { userId: 1 },
+  {
+    start: '(',
+    end: ')',
+  },
+);
 ```
