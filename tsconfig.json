@@ -8,8 +8,8 @@
   "compilerOptions": {
     /* Basic Options */
     // "incremental": true,
-    "target": "es5",
-    "module": "commonjs",
+    "target": "es6",
+    "module": "es6",
     // "lib": [],
     // "allowJs": true,
     // "checkJs": true,
@@ -42,7 +42,7 @@
     // "noImplicitReturns": true,
     // "noFallthroughCasesInSwitch": true,
     /* Module Resolution Options */
-    // "moduleResolution": "node",
+    "moduleResolution": "node",
     "baseUrl": ".",
     // "paths": {},
     // "rootDirs": [],
