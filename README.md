@@ -15,7 +15,6 @@ Tiny library for dynamic text hydrating
 [![Maintainability][maintainability-badge]][maintainability]
 [![Known Vulnerabilities][vulnerabilities-badge]][vulnerabilities]
 
-
 [version-badge]: https://img.shields.io/npm/v/hydrate-text.svg
 [package]: https://www.npmjs.com/package/hydrate-text
 
