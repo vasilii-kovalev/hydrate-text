@@ -1,23 +1,5 @@
+import { ConfigureHydrateText, HydrateText, VariableBorders } from './types';
 import { escapeRegExp, isNil } from './utils';
-
-export type ValueTypes = string | number | boolean | undefined | null;
-
-export interface Variables {
-  [key: string]: ValueTypes;
-}
-
-export interface VariableBorders {
-  start?: string;
-  end?: string;
-}
-
-export interface HydrateText {
-  (
-    text: string,
-    variables?: Variables | ValueTypes[],
-    customVariableBorders?: VariableBorders,
-  ): string;
-}
 
 export const defaultVariableBorders: VariableBorders = {
   start: '{',
@@ -55,10 +37,6 @@ export const hydrateText: HydrateText = (
     text,
   );
 };
-
-export interface ConfigureHydrateText {
-  (variableBorders?: VariableBorders): HydrateText;
-}
 
 export const configureHydrateText: ConfigureHydrateText = variableBorders => (
   text,
