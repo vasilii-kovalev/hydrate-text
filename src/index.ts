@@ -34,7 +34,7 @@ export const hydrateText: HydrateText = (
   variables = {},
   customVariableBorders,
 ) => {
-  const { start, end } = customVariableBorders
+  const { start, end }: VariableBorders = customVariableBorders
     ? {
       ...emptyVariableBorders,
       ...customVariableBorders,
@@ -55,3 +55,13 @@ export const hydrateText: HydrateText = (
     text,
   );
 };
+
+export interface ConfigureHydrateText {
+  (variableBorders?: VariableBorders): HydrateText;
+}
+
+export const configureHydrateText: ConfigureHydrateText = variableBorders => (
+  text,
+  variables,
+  customVariableBorders,
+) => hydrateText(text, variables, customVariableBorders || variableBorders);
