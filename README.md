@@ -64,7 +64,6 @@ import { hydrateText } from 'hydrate-text';
 const text1 = 'Hello, {username}!';
 const text2 = 'I have to {0} and {1}.';
 const route = '/users/:userId';
-const routeWithDifferentBorders = '/users/(userId)';
 
 // 'Hello, John Doe!'
 console.log(hydrateText(text1, { username: 'John Doe' }));
