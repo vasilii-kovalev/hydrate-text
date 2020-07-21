@@ -6,9 +6,11 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest",
+    "tslint": "tsc --noEmit",
+    "eslint": "eslint --ext .ts src --color",
     "build": "tsc",
     "prepare": "npm run build",
-    "prepublishOnly": "npm test",
+    "prepublishOnly": "npm test && npm run tslint && npm run eslint",
     "postversion": "git push && git push --tags"
   },
   "repository": {
@@ -29,6 +31,12 @@
   "homepage": "https://github.com/vasilii-kovalev/hydrate-text#readme",
   "devDependencies": {
     "@types/jest": "^25.2.3",
+    "@typescript-eslint/eslint-plugin": "^3.6.1",
+    "@typescript-eslint/parser": "^3.7.0",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "husky": "^4.2.5",
     "jest": "^26.1.0",
     "ts-jest": "^26.1.3",
     "typescript": "^3.9.7"
@@ -41,5 +49,10 @@
       "src/index.ts"
     ],
     "coverageDirectory": "./coverage"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prepublishOnly"
+    }
   }
 }

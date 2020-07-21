@@ -1,4 +1,9 @@
-import { hydrateText, HydrateText, ValueTypes, Variables } from '..';
+import {
+  HydrateText,
+  ValueTypes,
+  Variables,
+  hydrateText,
+} from '..';
 
 describe('hydrateText', () => {
   describe('with default variable borders', () => {

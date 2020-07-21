@@ -49,9 +49,9 @@ export const hydrateText: HydrateText = (
 
       const regExpSource = escapeRegExp(`${start}${key}${end}`);
       const regExp = new RegExp(regExpSource, 'g');
-  
+
       return result.replace(regExp, String(value));
     },
     text,
   );
-}
+};
