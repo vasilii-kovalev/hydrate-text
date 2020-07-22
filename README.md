@@ -52,6 +52,8 @@ npm install hydrate-text
 
 ## Features
 * Dependency-free
+* Side-effects-free
+* Tree-shakable
 * Light-weight
 * Works with variables as an object and an array
 * Flexible variable syntax change
