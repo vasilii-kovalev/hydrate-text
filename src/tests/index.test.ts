@@ -1,8 +1,10 @@
 import {
+  HydrateText,
+  ValueTypes,
+  Variables,
   configureHydrateText,
   hydrateText,
 } from '..';
-import { HydrateText, ValueTypes, Variables } from '../types';
 
 describe('hydrateText', () => {
   const textSimple = 'Simple text';
