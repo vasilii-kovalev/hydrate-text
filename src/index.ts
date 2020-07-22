@@ -1,12 +1,34 @@
-import { ConfigureHydrateText, HydrateText, VariableBorders } from './types';
 import { escapeRegExp, isNil } from './utils';
 
-export const defaultVariableBorders: VariableBorders = {
+export type ValueTypes = string | number | boolean | undefined | null;
+
+export interface Variables {
+  [key: string]: ValueTypes;
+}
+
+export interface VariableBorders {
+  start?: string;
+  end?: string;
+}
+
+export interface HydrateText {
+  (
+    text: string,
+    variables?: Variables | ValueTypes[],
+    customVariableBorders?: VariableBorders,
+  ): string;
+}
+
+export interface ConfigureHydrateText {
+  (variableBorders?: VariableBorders): HydrateText;
+}
+
+const defaultVariableBorders: VariableBorders = {
   start: '{',
   end: '}',
 };
 
-export const emptyVariableBorders: VariableBorders = {
+const emptyVariableBorders: VariableBorders = {
   start: '',
   end: '',
 };
