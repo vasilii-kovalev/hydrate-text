@@ -1,55 +1,57 @@
 # hydrate-text
 Tiny library for dynamic text hydrating with variables
 
-[![Version][version-badge]][package]
-[![MIT License][license-badge]][license]
-![Downloads][downloads-badge]
-[![GitHub Release][release-badge]][release]
-[![Build Status][build-badge]][build]
+[![Version][version-badge]][package-link]
+[![MIT License][license-badge]][license-link]
+[![Downloads][downloads-badge]][downloads-link]
+[![GitHub Release][release-badge]][releases-link]
+[![Build Status][build-badge]][builds-link]
 
-[![Minified size][min-size-badge]][size]
-[![Minified and gzipped size][minzip-size-badge]][size]
-[![Dependencies Status][dependencies-badge]][dependencies]
-[![devDependencies Status][dev-dependencies-badge]][dev-dependencies]
+[![Minified size][min-size-badge]][size-link]
+[![Minified and gzipped size][minzip-size-badge]][size-link]
+[![Dependencies Status][dependencies-badge]][dependencies-link]
+[![devDependencies Status][dev-dependencies-badge]][dev-dependencies-link]
 
-![Types][types-badge]
-[![Code Coverage][coverage-badge]][coverage]
-[![Maintainability][maintainability-badge]][maintainability]
-[![Known Vulnerabilities][vulnerabilities-badge]][vulnerabilities]
+[![Types][types-badge]][types-link]
+[![Code Coverage][coverage-badge]][coverage-link]
+[![Maintainability][maintainability-badge]][maintainability-link]
+[![Known Vulnerabilities][vulnerabilities-badge]][vulnerabilities-link]
 
 [version-badge]: https://badgen.net/npm/v/hydrate-text?style=flat
-[package]: https://www.npmjs.com/package/hydrate-text
+[package-link]: https://www.npmjs.com/package/hydrate-text
 
 [downloads-badge]: https://badgen.net/npm/dt/hydrate-text?style=flat&color=blue
+[downloads-link]: https://www.npmtrends.com/hydrate-text
 
 [license-badge]: https://badgen.net/github/license/vasilii-kovalev/hydrate-text?style=flat
-[license]: https://github.com/vasilii-kovalev/hydrate-text/blob/master/LICENSE
+[license-link]: https://github.com/vasilii-kovalev/hydrate-text/blob/master/LICENSE
 
 [release-badge]: https://badgen.net/github/release/vasilii-kovalev/hydrate-text?style=flat
-[release]: https://github.com/vasilii-kovalev/hydrate-text/releases
+[releases-link]: https://github.com/vasilii-kovalev/hydrate-text/releases
 
 [build-badge]: https://badgen.net/github/status/vasilii-kovalev/hydrate-text?style=flat
-[build]: https://github.com/vasilii-kovalev/hydrate-text/actions?query=workflow%3Abuild-test+branch%3Amaster
+[builds-link]: https://github.com/vasilii-kovalev/hydrate-text/actions?query=workflow%3Abuild-test+branch%3Amaster
 
 [min-size-badge]: https://badgen.net/bundlephobia/min/hydrate-text?style=flat
 [minzip-size-badge]: https://badgen.net/bundlephobia/minzip/hydrate-text?style=flat
-[size]: https://bundlephobia.com/result?p=hydrate-text
+[size-link]: https://bundlephobia.com/result?p=hydrate-text
 
 [dependencies-badge]: https://badgen.net/david/dep/vasilii-kovalev/hydrate-text?style=flat
-[dependencies]: https://david-dm.org/vasilii-kovalev/hydrate-text
+[dependencies-link]: https://david-dm.org/vasilii-kovalev/hydrate-text
 [dev-dependencies-badge]: https://badgen.net/david/dev/vasilii-kovalev/hydrate-text?style=flat
-[dev-dependencies]: https://david-dm.org/vasilii-kovalev/hydrate-text?type=dev
+[dev-dependencies-link]: https://david-dm.org/vasilii-kovalev/hydrate-text?type=dev
 
 [types-badge]: https://badgen.net/npm/types/hydrate-text?style=flat
+[types-link]: https://unpkg.com/hydrate-text/lib/index.d.ts
 
 [maintainability-badge]: https://badgen.net/codeclimate/maintainability/vasilii-kovalev/hydrate-text?style=flat
-[maintainability]: https://codeclimate.com/github/vasilii-kovalev/hydrate-text/maintainability
+[maintainability-link]: https://codeclimate.com/github/vasilii-kovalev/hydrate-text/maintainability
 
 [coverage-badge]: https://badgen.net/coveralls/c/github/vasilii-kovalev/hydrate-text?style=flat
-[coverage]: https://coveralls.io/github/vasilii-kovalev/hydrate-text
+[coverage-link]: https://coveralls.io/github/vasilii-kovalev/hydrate-text
 
 [vulnerabilities-badge]: https://badgen.net/snyk/vasilii-kovalev/hydrate-text?style=flat
-[vulnerabilities]: https://snyk.io/test/github/vasilii-kovalev/hydrate-text
+[vulnerabilities-link]: https://snyk.io/test/github/vasilii-kovalev/hydrate-text
 
 ## Installation
 ```shell
