@@ -1,10 +1,13 @@
 {
   "name": "hydrate-text",
-  "version": "1.2.0",
+  "version": "1.2.5",
   "description": "Tiny library for dynamic text hydrating with variables",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/typings/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "umd:main": "dist/umd/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/typings/index.d.ts",
+  "unpkg": "dist/umd/index.min.js",
+  "jsdelivr": "dist/umd/index.min.js",
   "sideEffects": false,
   "keywords": [
     "javascript",
