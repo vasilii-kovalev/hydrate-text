@@ -1,10 +1,11 @@
 {
-  "version": "1.0.0",
   "exclude": [
     "node_modules",
     "src/**/*.test.ts",
-    "lib/*"
+    "dist/*"
   ],
+  // Without "include" TypeScript tries to compile "webpack.config.ts" as well.
+  "include": ["src"],
   "compilerOptions": {
     /* Basic Options */
     // "incremental": true,
@@ -15,10 +16,11 @@
     // "checkJs": true,
     // "jsx": "preserve",
     "declaration": true,
+    "declarationDir": "./dist/typings/",
     // "declarationMap": true,
     // "sourceMap": true,
     // "outFile": "./",
-    "outDir": "./lib",
+    "outDir": "./dist/esm/",
     "rootDir": "src",
     // "composite": true,
     // "tsBuildInfoFile": "./",
