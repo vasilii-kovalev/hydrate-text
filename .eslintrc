@@ -1,5 +1,5 @@
 {
-  // "version": "1.0.0",
+  // "version": "1.1.0",
   "plugins": [
     "@typescript-eslint"
   ],
@@ -68,6 +68,14 @@
       "error",
       {
         "ts": "never"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "webpack.config.ts"
+        ]
       }
     ],
     "import/prefer-default-export": "off"
