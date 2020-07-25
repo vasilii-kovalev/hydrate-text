@@ -17,7 +17,7 @@ const configurationFactory: ConfigurationFactory = env => {
     output: {
       path: path.resolve(__dirname, './dist/umd'),
       filename: `[name]${minimize ? '.min' : ''}.js`,
-      library: 'hydrateText',
+      library: 'HydrateText',
       libraryTarget: 'umd',
       globalObject: 'this',
     },
