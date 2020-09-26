@@ -39,9 +39,9 @@ Tiny library for dynamic text hydrating with variables
 [build-badge]: https://flat.badgen.net/github/status/vasilii-kovalev/hydrate-text
 [builds-link]: https://github.com/vasilii-kovalev/hydrate-text/actions?query=workflow%3Abuild-test+branch%3Amaster
 
-[min-size-badge]: https://flat.badgen.net/bundlephobia/min/hydrate-text@1.2.5
-[minzip-size-badge]: https://flat.badgen.net/bundlephobia/minzip/hydrate-text@1.2.5
-[size-link]: https://bundlephobia.com/result?p=hydrate-text@1.2.5
+[min-size-badge]: https://flat.badgen.net/bundlephobia/min/hydrate-text@1.2.6
+[minzip-size-badge]: https://flat.badgen.net/bundlephobia/minzip/hydrate-text@1.2.6
+[size-link]: https://bundlephobia.com/result?p=hydrate-text@1.2.6
 
 [dependencies-badge]: https://flat.badgen.net/david/dep/vasilii-kovalev/hydrate-text
 [dependencies-link]: https://david-dm.org/vasilii-kovalev/hydrate-text
@@ -61,7 +61,7 @@ Tiny library for dynamic text hydrating with variables
 [vulnerabilities-link]: https://snyk.io/test/github/vasilii-kovalev/hydrate-text
 
 [jsdelivr-hits-per-month-badge]: https://data.jsdelivr.com/v1/package/npm/hydrate-text/badge
-[jsdelivr-hits-per-month-link]: https://www.jsdelivr.com/package/npm/hydrate-text?version=1.2.5
+[jsdelivr-hits-per-month-link]: https://www.jsdelivr.com/package/npm/hydrate-text?version=1.2.6
 
 ## Example
 ```typescript
@@ -137,12 +137,12 @@ yarn add hydrate-text
     <tr>
       <td rowspan=2>
         <img
-          src="https://flat.badgen.net/badgesize/normal/https/unpkg.com/hydrate-text@1.2.5/dist/umd/index.js?label=Uncompressed"
+          src="https://flat.badgen.net/badgesize/normal/https/unpkg.com/hydrate-text@1.2.6/dist/umd/index.js?label=Uncompressed"
           alt="Uncompressed package bundle size"
         >
       </td>
       <td>
-        <a href="https://unpkg.com/hydrate-text@1.2.5/dist/umd/index.js">
+        <a href="https://unpkg.com/hydrate-text@1.2.6/dist/umd/index.js">
           <img
             src="https://flat.badgen.net/badge/%20%20%20/UNPKG/green"
             alt="Link to uncompressed UMD package on UNPKG"
@@ -152,7 +152,7 @@ yarn add hydrate-text
     </tr>
     <tr>
       <td>
-        <a href="https://cdn.jsdelivr.net/npm/hydrate-text@1.2.5/dist/umd/index.js">
+        <a href="https://cdn.jsdelivr.net/npm/hydrate-text@1.2.6/dist/umd/index.js">
           <img
             src="https://flat.badgen.net/badge/icon/jsdelivr?icon=jsdelivr&label&color=green"
             alt="Link to uncompressed UMD package on jsDelivr"
@@ -163,12 +163,12 @@ yarn add hydrate-text
     <tr>
       <td rowspan=2>
         <img
-          src="https://flat.badgen.net/badgesize/normal/https/unpkg.com/hydrate-text@1.2.5/dist/umd/index.min.js?label=Minified"
+          src="https://flat.badgen.net/badgesize/normal/https/unpkg.com/hydrate-text@1.2.6/dist/umd/index.min.js?label=Minified"
           alt="Minified package bundle size"
         >
       </td>
       <td>
-        <a href="https://unpkg.com/hydrate-text@1.2.5/dist/umd/index.min.js">
+        <a href="https://unpkg.com/hydrate-text@1.2.6/dist/umd/index.min.js">
           <img
             src="https://flat.badgen.net/badge/%20%20%20/UNPKG/green"
             alt="Link to minified UMD package on UNPKG"
@@ -178,7 +178,7 @@ yarn add hydrate-text
     </tr>
     <tr>
       <td>
-        <a href="https://cdn.jsdelivr.net/npm/hydrate-text@1.2.5/dist/umd/index.min.js">
+        <a href="https://cdn.jsdelivr.net/npm/hydrate-text@1.2.6/dist/umd/index.min.js">
           <img
             src="https://flat.badgen.net/badge/icon/jsdelivr?icon=jsdelivr&label&color=green"
             alt="Link to minified UMD package on jsDelivr"
