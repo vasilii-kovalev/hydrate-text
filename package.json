@@ -1,6 +1,6 @@
 {
   "name": "hydrate-text",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Tiny library for dynamic text hydrating with variables",
   "main": "dist/cjs/index.js",
   "umd:main": "dist/umd/index.js",
@@ -9,6 +9,9 @@
   "unpkg": "dist/umd/index.min.js",
   "jsdelivr": "dist/umd/index.min.js",
   "sideEffects": false,
+  "files": [
+    "/dist"
+  ],
   "keywords": [
     "javascript",
     "typescript",
@@ -29,26 +32,26 @@
     "url": "https://github.com/vasilii-kovalev/hydrate-text/issues"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.7",
-    "@types/node": "^14.0.26",
-    "@types/terser-webpack-plugin": "^3.0.0",
-    "@types/webpack": "^4.41.21",
-    "@typescript-eslint/eslint-plugin": "^3.7.0",
-    "@typescript-eslint/parser": "^3.7.0",
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.2",
+    "@types/terser-webpack-plugin": "^4.2.0",
+    "@types/webpack": "^4.41.22",
+    "@typescript-eslint/eslint-plugin": "^4.2.0",
+    "@typescript-eslint/parser": "^4.2.0",
     "babel-core": "6.26.3",
     "babel-loader": "8.1.0",
     "cross-env": "^7.0.2",
-    "eslint": "^7.5.0",
+    "eslint": "^7.9.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
-    "husky": "^4.2.5",
-    "jest": "^26.1.0",
-    "terser-webpack-plugin": "^3.0.7",
-    "ts-jest": "^26.1.3",
-    "ts-node": "^8.10.2",
+    "husky": "^4.3.0",
+    "jest": "^26.4.2",
+    "terser-webpack-plugin": "^4.2.2",
+    "ts-jest": "^26.4.0",
+    "ts-node": "^9.0.0",
     "tsconfig-paths": "^3.9.0",
-    "typescript": "^3.9.7",
-    "webpack": "4.44.0",
+    "typescript": "^4.0.3",
+    "webpack": "^4.44.2",
     "webpack-cli": "3.3.12"
   },
   "scripts": {
