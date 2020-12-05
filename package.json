@@ -1,6 +1,6 @@
 {
   "name": "hydrate-text",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "Tiny library for dynamic text hydrating with variables",
   "main": "dist/cjs/index.js",
   "umd:main": "dist/umd/index.js",
