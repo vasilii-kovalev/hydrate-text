@@ -88,10 +88,8 @@ describe('hydrateText', () => {
   });
 
   describe('with custom variable borders', () => {
-    const replaceRouteVariables: HydrateText = (
-      text,
-      variables,
-    ) => hydrateText(text, variables, { start: ':' });
+    const replaceRouteVariables: HydrateText = (text, variables) =>
+      hydrateText(text, variables, { start: ':' });
 
     it('should keep "mainPageRoute" as is', () => {
       const resultText = replaceRouteVariables(mainPageRoute, oneVariable);
@@ -137,10 +135,7 @@ describe('hydrateText', () => {
 
     it(`should replace correct variables in "routeWithVariable"
     with borders set in replaceRouteVariables`, () => {
-      const resultText = replaceRouteVariables(
-        routeWithVariable,
-        oneVariable,
-      );
+      const resultText = replaceRouteVariables(routeWithVariable, oneVariable);
 
       expect(resultText).toBe('/some/route/hello');
     });

@@ -1,81 +1,11 @@
 {
-  // "version": "1.1.0",
-  "plugins": [
-    "@typescript-eslint"
-  ],
-  "extends": [
-    "eslint-config-airbnb-base"
-  ],
   "rules": {
-    "arrow-parens": [
-      "error",
-      "as-needed"
-    ],
-    "indent": "off",
-    "linebreak-style": "off",
-    "max-len": [
-      "error",
-      {
-        "code": 80,
-        "ignoreComments": true
-      }
-    ],
-    "no-unused-vars": "off",
     "sort-imports": [
       "error",
       {
         "ignoreCase": false,
         "ignoreDeclarationSort": true,
         "ignoreMemberSort": false
-      }
-    ],
-    "@typescript-eslint/indent": [
-      "error",
-      2
-    ],
-    "@typescript-eslint/no-unused-vars": [
-      "error"
-    ],
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index"
-        ],
-        "pathGroups": [
-          {
-            "pattern": "src/**",
-            "group": "internal",
-            "position": "after"
-          }
-        ],
-        "pathGroupsExcludedImportTypes": [
-          "builtin"
-        ],
-        "newlines-between": "always",
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": false
-        }
-      }
-    ],
-    "import/extensions": [
-      "error",
-      {
-        "ts": "never"
-      }
-    ],
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": [
-          "webpack.config.ts"
-        ]
       }
     ],
     "import/prefer-default-export": "off"
@@ -90,9 +20,7 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [
-          ".ts"
-        ]
+        "extensions": [".ts"]
       }
     }
   }

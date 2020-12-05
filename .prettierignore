@@ -1,0 +1,8 @@
+# Artifacts:
+.next
+build
+dist
+coverage
+
+# GitHub Workflow
+.github

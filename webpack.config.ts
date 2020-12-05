@@ -1,12 +1,10 @@
 import path from 'path';
 
 import TerserPlugin from 'terser-webpack-plugin';
-import { ConfigurationFactory } from 'webpack';
+import * as webpack from 'webpack';
 
-const configurationFactory: ConfigurationFactory = env => {
-  const parsedMinimize = typeof env === 'string'
-    ? false
-    : env?.MINIMIZE;
+const configurationFactory = (env): webpack.Configuration => {
+  const parsedMinimize = typeof env === 'string' ? false : env?.MINIMIZE;
   const minimize = Boolean(parsedMinimize);
 
   return {
@@ -31,9 +29,7 @@ const configurationFactory: ConfigurationFactory = env => {
     },
     optimization: {
       minimize,
-      minimizer: [
-        new TerserPlugin(),
-      ],
+      minimizer: [new TerserPlugin()],
     },
   };
 };
