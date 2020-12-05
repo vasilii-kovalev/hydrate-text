@@ -3,8 +3,10 @@
   // Without "include" TypeScript tries to compile "webpack.config.ts" as well.
   "include": ["src"],
   "compilerOptions": {
+    "types": ["jest", "node"],
     "target": "es6",
     "module": "es6",
+    "lib": ["ES2017"],
     "declaration": true,
     "declarationDir": "./dist/typings/",
     "outDir": "./dist/esm/",
