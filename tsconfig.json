@@ -1,68 +1,19 @@
 {
-  "exclude": [
-    "node_modules",
-    "src/**/*.test.ts",
-    "dist/*"
-  ],
+  "exclude": ["node_modules", "src/**/*.test.ts", "dist/*"],
   // Without "include" TypeScript tries to compile "webpack.config.ts" as well.
   "include": ["src"],
   "compilerOptions": {
-    /* Basic Options */
-    // "incremental": true,
     "target": "es6",
     "module": "es6",
-    // "lib": [],
-    // "allowJs": true,
-    // "checkJs": true,
-    // "jsx": "preserve",
     "declaration": true,
     "declarationDir": "./dist/typings/",
-    // "declarationMap": true,
-    // "sourceMap": true,
-    // "outFile": "./",
     "outDir": "./dist/esm/",
     "rootDir": "src",
-    // "composite": true,
-    // "tsBuildInfoFile": "./",
-    // "removeComments": true,
-    // "noEmit": true,
-    // "importHelpers": true,
-    // "downlevelIteration": true,
     "isolatedModules": true,
-    /* Strict Type-Checking Options */
     "strict": true,
-    // "noImplicitAny": true,
-    // "strictNullChecks": true,
-    // "strictFunctionTypes": true,
-    // "strictBindCallApply": true,
-    // "strictPropertyInitialization": true,
-    // "noImplicitThis": true,
-    // "alwaysStrict": true,
-    /* Additional Checks */
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noImplicitReturns": true,
-    // "noFallthroughCasesInSwitch": true,
-    /* Module Resolution Options */
     "moduleResolution": "node",
     "baseUrl": ".",
-    // "paths": {},
-    // "rootDirs": [],
-    // "typeRoots": [],
-    // "types": [],
-    // "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    // "preserveSymlinks": true,
-    // "allowUmdGlobalAccess": true,
-    /* Source Map Options */
-    // "sourceRoot": "",
-    // "mapRoot": "",
-    // "inlineSourceMap": true,
-    // "inlineSources": true,
-    /* Experimental Options */
-    // "experimentalDecorators": true,
-    // "emitDecoratorMetadata": true,
-    /* Advanced Options */
     "forceConsistentCasingInFileNames": true
   }
 }

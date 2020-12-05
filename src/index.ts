@@ -40,24 +40,21 @@ export const hydrateText: HydrateText = (
 ) => {
   const { start, end }: VariableBorders = customVariableBorders
     ? {
-      ...emptyVariableBorders,
-      ...customVariableBorders,
-    }
+        ...emptyVariableBorders,
+        ...customVariableBorders,
+      }
     : defaultVariableBorders;
 
-  return Object.entries(variables).reduce(
-    (result, [key, value]) => {
-      if (isNil(value)) {
-        return result;
-      }
+  return Object.entries(variables).reduce((result, [key, value]) => {
+    if (isNil(value)) {
+      return result;
+    }
 
-      const regExpSource = escapeRegExp(`${start}${key}${end}`);
-      const regExp = new RegExp(regExpSource, 'g');
+    const regExpSource = escapeRegExp(`${start}${key}${end}`);
+    const regExp = new RegExp(regExpSource, 'g');
 
-      return result.replace(regExp, String(value));
-    },
-    text,
-  );
+    return result.replace(regExp, String(value));
+  }, text);
 };
 
 export const configureHydrateText: ConfigureHydrateText = variableBorders => (

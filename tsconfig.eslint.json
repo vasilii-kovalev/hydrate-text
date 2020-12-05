@@ -1,11 +1,7 @@
 {
-  "version": "1.0.1",
   "extends": "./tsconfig.json",
   "exclude": [],
-  "include": [
-    "src",
-    "webpack.config.ts"
-  ],
+  "include": ["src", "webpack.config.ts"],
   "compilerOptions": {
     "noEmit": true
   }
