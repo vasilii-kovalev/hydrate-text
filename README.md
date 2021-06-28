@@ -1,6 +1,6 @@
 # hydrate-text
 
-Tiny library for dynamic text hydrating with variables
+A tiny library for dynamic text hydrating with variables.
 
 [![Version][version-badge]][package-link]
 [![MIT License][license-badge]][license-link]
@@ -57,18 +57,14 @@ Tiny library for dynamic text hydrating with variables
 ```typescript
 import { hydrateText } from 'hydrate-text';
 
-const text1 = 'Hello, {username}!';
-const text2 = 'I have to {0} and {1}.';
+const text = 'Hello, {username}!';
 const route = '/users/:userId';
 
 // 'Hello, John Doe!'
-console.log(hydrateText(text1, { username: 'John Doe' }));
-
-// 'I have to run tests and make tea.'
-console.log(hydrateText(text2, ['run tests', 'make tea']));
+console.log(hydrateText(text, { username: 'John Doe' }));
 
 // '/users/1'
-console.log(hydrateText(route, { userId: 1 }, { start: ':' }));
+console.log(hydrateText(route, { userId: 1 }, { prefix: ':' }));
 ```
 
 Initial variables syntax can be configured via `configureHydrateText`, that
@@ -78,20 +74,20 @@ returns `hydrateText` function as a result.
 import { configureHydrateText } from 'hydrate-text';
 
 const route = '/users/:userId';
-const routeWithDifferentBorders = '/users/(userId)';
+const routeWithCustomInterpolationOptions = '/users/(userId)';
 
-const replaceRouteVariables = configureHydrateText({ start: ':' });
+const replaceRouteVariables = configureHydrateText({ prefix: ':' });
 
 // '/users/1'
 replaceRouteVariables(route, { userId: 1 });
 
 // '/users/1'
 replaceRouteVariables(
-  routeWithDifferentBorders,
+  routeWithCustomInterpolationOptions,
   { userId: 1 },
   {
-    start: '(',
-    end: ')',
+    prefix: '(',
+    suffix: ')',
   },
 );
 ```
@@ -101,8 +97,7 @@ replaceRouteVariables(
 - Light-weight
 - Dependency-free
 - Tree-shakable
-- Works with variables as an object and an array
-- Flexible variable syntax change
+- Flexible interpolation options change
 - ES Module, CommonJS and UMD options are available
 - Strongly typed with TypeScript
 

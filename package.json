@@ -1,7 +1,7 @@
 {
   "name": "hydrate-text",
   "version": "1.2.7",
-  "description": "Tiny library for dynamic text hydrating with variables",
+  "description": "A tiny library for dynamic text hydrating with variables",
   "main": "dist/cjs/index.js",
   "umd:main": "dist/umd/index.js",
   "module": "dist/esm/index.js",
@@ -21,7 +21,7 @@
     "zero-dependency",
     "tree-shakable"
   ],
-  "author": "Vasilii Kovalev <vasya.kowalev@yandex.ru>",
+  "author": "Vasilii Kovalev <vasilii.kovalev95@yandex.ru>",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -57,7 +57,7 @@
     "tslint": "tsc --noEmit",
     "eslint": "eslint --ext .ts src webpack.config.ts --color",
     "prettier:check": "prettier --check .",
-    "prettier:write": "prettier --write .",
+    "prettier:fix": "prettier --write .",
     "lint": "npm run tslint && npm run eslint && npm run prettier:check",
     "build:esm": "tsc -p tsconfig.json",
     "build:cjs": "tsc -p tsconfig.node.json",

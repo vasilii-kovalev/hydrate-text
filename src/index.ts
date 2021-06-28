@@ -1,64 +1,40 @@
+import {
+  DEFAULT_INTERPOLATION_OPTIONS,
+  EMPTY_INTERPOLATION_OPTIONS,
+} from './constants';
+import {
+  ConfigureHydrateText,
+  HydrateText,
+  InterpolationOptions,
+} from './types';
 import { escapeRegExp, isNil } from './utils';
 
-export type ValueTypes = string | number | boolean | undefined | null;
-
-export interface Variables {
-  [key: string]: ValueTypes;
-}
-
-export interface VariableBorders {
-  start?: string;
-  end?: string;
-}
-
-export interface HydrateText {
-  (
-    text: string,
-    variables?: Variables | ValueTypes[],
-    customVariableBorders?: VariableBorders,
-  ): string;
-}
-
-export interface ConfigureHydrateText {
-  (variableBorders?: VariableBorders): HydrateText;
-}
-
-const defaultVariableBorders: VariableBorders = {
-  start: '{',
-  end: '}',
-};
-
-const emptyVariableBorders: VariableBorders = {
-  start: '',
-  end: '',
-};
-
-export const hydrateText: HydrateText = (
+const hydrateText: HydrateText = (
   text,
   variables = {},
   customVariableBorders,
 ) => {
-  const { start, end }: VariableBorders = customVariableBorders
+  const { prefix, suffix }: InterpolationOptions = customVariableBorders
     ? {
-        ...emptyVariableBorders,
+        ...EMPTY_INTERPOLATION_OPTIONS,
         ...customVariableBorders,
       }
-    : defaultVariableBorders;
+    : DEFAULT_INTERPOLATION_OPTIONS;
 
   return Object.entries(variables).reduce((result, [key, value]) => {
     if (isNil(value)) {
       return result;
     }
 
-    const regExpSource = escapeRegExp(`${start}${key}${end}`);
+    const regExpSource = escapeRegExp(`${prefix}${key}${suffix}`);
     const regExp = new RegExp(regExpSource, 'g');
 
     return result.replace(regExp, String(value));
   }, text);
 };
 
-export const configureHydrateText: ConfigureHydrateText = variableBorders => (
-  text,
-  variables,
-  customVariableBorders,
-) => hydrateText(text, variables, customVariableBorders || variableBorders);
+const configureHydrateText: ConfigureHydrateText =
+  variableBorders => (text, variables, customVariableBorders) =>
+    hydrateText(text, variables, customVariableBorders || variableBorders);
+
+export { configureHydrateText, hydrateText };

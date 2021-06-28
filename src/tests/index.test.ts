@@ -1,16 +1,10 @@
-import {
-  HydrateText,
-  ValueTypes,
-  Variables,
-  configureHydrateText,
-  hydrateText,
-} from '..';
+import { configureHydrateText, hydrateText } from '..';
+import { HydrateText, Variables } from '../types';
 
 describe('hydrateText', () => {
   const textSimple = 'Simple text';
   const textWithVariables = 'Hello, {0} {user1} and {1} {user2}';
   const textWithNoise = 'Hello, {0} {{user1}} and {{1}} {user2}';
-  const variablesArray: ValueTypes[] = ['mr.', 'miss', 2, true];
   const variablesObject: Variables = {
     0: 'mr.',
     1: 'miss',
@@ -34,14 +28,10 @@ describe('hydrateText', () => {
     variableId: undefined,
   };
 
-  describe('with default variable borders', () => {
+  describe('with default interpolation options', () => {
     it(`should keep "simple text" as is
     if "variables" is not provided`, () => {
       expect(hydrateText(textSimple)).toBe(textSimple);
-    });
-
-    it('should keep "simple text" as is if "variables" is an array', () => {
-      expect(hydrateText(textSimple, variablesArray)).toBe(textSimple);
     });
 
     it('should keep "simple text" as is if "variables" is an object', () => {
@@ -54,14 +44,7 @@ describe('hydrateText', () => {
     });
 
     it(`should replace correct variables in "textWithVariables"
-    when "variables" is an array`, () => {
-      const resultText = hydrateText(textWithVariables, variablesArray);
-
-      expect(resultText).toBe('Hello, mr. {user1} and miss {user2}');
-    });
-
-    it(`should replace correct variables in "textWithVariables"
-    when "variables" is an object`, () => {
+    when "variables" is provided`, () => {
       const resultText = hydrateText(textWithVariables, variablesObject);
 
       expect(resultText).toBe('Hello, mr. John and miss Sarah');
@@ -73,23 +56,16 @@ describe('hydrateText', () => {
     });
 
     it(`should replace correct variables in "textWithNoise"
-    when "variables" is an array`, () => {
-      const resultText = hydrateText(textWithNoise, variablesArray);
-
-      expect(resultText).toBe('Hello, mr. {{user1}} and {miss} {user2}');
-    });
-
-    it(`should replace correct variables in "textWithNoise"
-    when "variables" is an object`, () => {
+    when "variables" is provided`, () => {
       const resultText = hydrateText(textWithNoise, variablesObject);
 
       expect(resultText).toBe('Hello, mr. {John} and {miss} Sarah');
     });
   });
 
-  describe('with custom variable borders', () => {
+  describe('with custom interpolation options', () => {
     const replaceRouteVariables: HydrateText = (text, variables) =>
-      hydrateText(text, variables, { start: ':' });
+      hydrateText(text, variables, { prefix: ':' });
 
     it('should keep "mainPageRoute" as is', () => {
       const resultText = replaceRouteVariables(mainPageRoute, oneVariable);
@@ -130,24 +106,25 @@ describe('hydrateText', () => {
   });
 
   describe('configureHydrateText', () => {
-    const replaceRouteVariables = configureHydrateText({ start: ':' });
-    const routeWithVariableWithDifferentBorders = '/some/route/(variableName)';
+    const replaceRouteVariables = configureHydrateText({ prefix: ':' });
+    const routeWithVariableWithCustomInterpolationOptions =
+      '/some/route/(variableName)';
 
     it(`should replace correct variables in "routeWithVariable"
-    with borders set in replaceRouteVariables`, () => {
+    with interpolation options set in configureHydrateText`, () => {
       const resultText = replaceRouteVariables(routeWithVariable, oneVariable);
 
       expect(resultText).toBe('/some/route/hello');
     });
 
     it(`should replace correct variables in "routeWithVariable"
-    with other borders than set in replaceRouteVariables`, () => {
+    with interpolation options set in replaceRouteVariables`, () => {
       const resultText = replaceRouteVariables(
-        routeWithVariableWithDifferentBorders,
+        routeWithVariableWithCustomInterpolationOptions,
         oneVariable,
         {
-          start: '(',
-          end: ')',
+          prefix: '(',
+          suffix: ')',
         },
       );
 
