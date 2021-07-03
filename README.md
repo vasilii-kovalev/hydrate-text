@@ -77,12 +77,12 @@ yarn add hydrate-text
 
 ```typescript
 // ES Modules syntax
-import { hydrateText } from 'hydrate-text';
+import { hydrateText } from "hydrate-text";
 // CommonJS syntax
-const hydrateText = require('hydrate-text').hydrateText;
+const hydrateText = require("hydrate-text").hydrateText;
 
 // 'Hello, John Doe!'
-console.log(hydrateText('Hello, {username}!', { username: 'John Doe' }));
+console.log(hydrateText("Hello, {username}!", { username: "John Doe" }));
 ```
 
 ### CDN
@@ -100,47 +100,47 @@ console.log(hydrateText('Hello, {username}!', { username: 'John Doe' }));
 ```html
 <script src="library-CDN-link-here"></script>
 <script>
-  const { hydrateText } = HydrateText;
+	const { hydrateText } = HydrateText;
 
-  // 'Hello, John Doe!'
-  console.log(hydrateText('Hello, {username}!', { username: 'John Doe' }));
+	// 'Hello, John Doe!'
+	console.log(hydrateText("Hello, {username}!", { username: "John Doe" }));
 </script>
 ```
 
 ## More examples
 
 ```typescript
-import { hydrateText } from 'hydrate-text';
+import { hydrateText } from "hydrate-text";
 
-const route = '/users/:userId';
+const route = "/users/:userId";
 
 // '/users/1'
-console.log(hydrateText(route, { userId: 1 }, { prefix: ':' }));
+console.log(hydrateText(route, { userId: 1 }, { prefix: ":" }));
 ```
 
 Interpolation options can be configured via `configureHydrateText` function,
 that returns `hydrateText` function as a result.
 
 ```typescript
-import { configureHydrateText } from 'hydrate-text';
+import { configureHydrateText } from "hydrate-text";
 
-const route = '/users/:userId';
-const routeWithCustomInterpolationOptions = '/users/(userId)';
+const route = "/users/:userId";
+const routeWithCustomInterpolationOptions = "/users/(userId)";
 
-const replaceRouteVariables = configureHydrateText({ prefix: ':' });
+const replaceRouteVariables = configureHydrateText({ prefix: ":" });
 
 // '/users/1'
 console.log(replaceRouteVariables(route, { userId: 1 }));
 
 // '/users/1'
 console.log(
-  replaceRouteVariables(
-    routeWithCustomInterpolationOptions,
-    { userId: 1 },
-    {
-      prefix: '(',
-      suffix: ')',
-    },
-  ),
+	replaceRouteVariables(
+		routeWithCustomInterpolationOptions,
+		{ userId: 1 },
+		{
+			prefix: "(",
+			suffix: ")",
+		},
+	),
 );
 ```
