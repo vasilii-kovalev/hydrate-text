@@ -13,13 +13,13 @@ const reHasRegExpChar = RegExp(reRegExpChar.source);
   "(", ")", "[", "]", "{", "}", and "|" in `value`.
 */
 const escapeRegExp = (value?: string): string => {
-	const string = String(value ?? "");
+  const string = String(value ?? "");
 
-	if (!string || !reHasRegExpChar.test(string)) {
-		return string;
-	}
+  if (!string || !reHasRegExpChar.test(string)) {
+    return string;
+  }
 
-	return string.replace(reRegExpChar, "\\$&");
+  return string.replace(reRegExpChar, "\\$&");
 };
 
 /*

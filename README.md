@@ -100,10 +100,10 @@ console.log(hydrateText("Hello, {username}!", { username: "John Doe" }));
 ```html
 <script src="library-CDN-link-here"></script>
 <script>
-	const { hydrateText } = HydrateText;
+  const { hydrateText } = HydrateText;
 
-	// 'Hello, John Doe!'
-	console.log(hydrateText("Hello, {username}!", { username: "John Doe" }));
+  // 'Hello, John Doe!'
+  console.log(hydrateText("Hello, {username}!", { username: "John Doe" }));
 </script>
 ```
 
@@ -134,13 +134,13 @@ console.log(replaceRouteVariables(route, { userId: 1 }));
 
 // '/users/1'
 console.log(
-	replaceRouteVariables(
-		routeWithCustomInterpolationOptions,
-		{ userId: 1 },
-		{
-			prefix: "(",
-			suffix: ")",
-		},
-	),
+  replaceRouteVariables(
+    routeWithCustomInterpolationOptions,
+    { userId: 1 },
+    {
+      prefix: "(",
+      suffix: ")",
+    },
+  ),
 );
 ```

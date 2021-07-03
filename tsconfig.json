@@ -1,21 +1,21 @@
 {
-	"exclude": ["node_modules", "src/**/*.test.ts", "dist/*"],
-	// Without "include" TypeScript tries to compile "webpack.config.ts" as well.
-	"include": ["src"],
-	"compilerOptions": {
-		"types": ["jest", "node"],
-		"target": "es6",
-		"module": "es6",
-		"lib": ["ES2017"],
-		"declaration": true,
-		"declarationDir": "./dist/typings/",
-		"outDir": "./dist/esm/",
-		"rootDir": "src",
-		"isolatedModules": true,
-		"strict": true,
-		"moduleResolution": "node",
-		"baseUrl": ".",
-		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true
-	}
+  "exclude": ["node_modules", "src/**/*.test.ts", "dist/*"],
+  // Without "include" TypeScript tries to compile "webpack.config.ts" as well.
+  "include": ["src"],
+  "compilerOptions": {
+    "types": ["jest", "node"],
+    "target": "es6",
+    "module": "es6",
+    "lib": ["ES2017"],
+    "declaration": true,
+    "declarationDir": "./dist/typings/",
+    "outDir": "./dist/esm/",
+    "rootDir": "src",
+    "isolatedModules": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
+  }
 }

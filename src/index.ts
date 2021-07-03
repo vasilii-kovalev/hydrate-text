@@ -1,51 +1,51 @@
 import {
-	DEFAULT_INTERPOLATION_OPTIONS,
-	EMPTY_INTERPOLATION_OPTIONS,
+  DEFAULT_INTERPOLATION_OPTIONS,
+  EMPTY_INTERPOLATION_OPTIONS,
 } from "./constants";
 import {
-	ConfigureHydrateText,
-	HydrateText,
-	InterpolationOptions,
+  ConfigureHydrateText,
+  HydrateText,
+  InterpolationOptions,
 } from "./types";
 import { escapeRegExp, isNil } from "./utils";
 
 const hydrateText: HydrateText = (
-	text,
-	variables = {},
-	interpolationOptions,
+  text,
+  variables = {},
+  interpolationOptions,
 ) => {
-	const { prefix, suffix }: InterpolationOptions = interpolationOptions
-		? {
-				...EMPTY_INTERPOLATION_OPTIONS,
-				...interpolationOptions,
-		  }
-		: DEFAULT_INTERPOLATION_OPTIONS;
+  const { prefix, suffix }: InterpolationOptions = interpolationOptions
+    ? {
+        ...EMPTY_INTERPOLATION_OPTIONS,
+        ...interpolationOptions,
+      }
+    : DEFAULT_INTERPOLATION_OPTIONS;
 
-	const resultText = Object.entries(variables).reduce(
-		(resultText, [name, value]) => {
-			if (isNil(value)) {
-				return resultText;
-			}
+  const resultText = Object.entries(variables).reduce(
+    (resultText, [name, value]) => {
+      if (isNil(value)) {
+        return resultText;
+      }
 
-			const regExpSource = escapeRegExp(`${prefix}${name}${suffix}`);
-			const regExp = new RegExp(regExpSource, "g");
+      const regExpSource = escapeRegExp(`${prefix}${name}${suffix}`);
+      const regExp = new RegExp(regExpSource, "g");
 
-			return resultText.replace(regExp, String(value));
-		},
-		text,
-	);
+      return resultText.replace(regExp, String(value));
+    },
+    text,
+  );
 
-	return resultText;
+  return resultText;
 };
 
 const configureHydrateText: ConfigureHydrateText =
-	interpolationOptionsFromConfigurer =>
-	(text, variables, interpolationOptionsFromInnerFunction) => {
-		const interpolationOptions =
-			interpolationOptionsFromInnerFunction ??
-			interpolationOptionsFromConfigurer;
+  interpolationOptionsFromConfigurer =>
+  (text, variables, interpolationOptionsFromInnerFunction) => {
+    const interpolationOptions =
+      interpolationOptionsFromInnerFunction ??
+      interpolationOptionsFromConfigurer;
 
-		return hydrateText(text, variables, interpolationOptions);
-	};
+    return hydrateText(text, variables, interpolationOptions);
+  };
 
 export { configureHydrateText, hydrateText };
