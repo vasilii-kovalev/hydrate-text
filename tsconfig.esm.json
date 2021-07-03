@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./dist/typings/",
+    "noEmit": false,
+    "rootDir": "src",
+    "outDir": "./dist/esm/"
+  },
+  "exclude": ["node_modules", "src/**/*.test.ts", "dist/*"],
+  // Without "include" TypeScript tries to compile "webpack.config.ts" as well.
+  "include": ["src"]
+}

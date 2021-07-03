@@ -61,7 +61,7 @@ A tiny library for dynamic text hydrating with variables.
 - ES Module, CommonJS and UMD options are supported
 - Strongly typed with TypeScript
 
-## Installation and examples
+## Installation and usage examples
 
 ### npm
 
@@ -107,7 +107,7 @@ console.log(hydrateText("Hello, {username}!", { username: "John Doe" }));
 </script>
 ```
 
-## More examples
+## More usage examples
 
 ```typescript
 import { hydrateText } from "hydrate-text";
@@ -144,3 +144,7 @@ console.log(
   ),
 );
 ```
+
+## License
+
+[MIT](./LICENSE)

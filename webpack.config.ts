@@ -3,9 +3,14 @@ import path from "path";
 import TerserPlugin from "terser-webpack-plugin";
 import * as webpack from "webpack";
 
-const configurationFactory = (env): webpack.Configuration => {
-  const parsedMinimize = typeof env === "string" ? false : env?.MINIMIZE;
-  const minimize = Boolean(parsedMinimize);
+interface EnvironmentVariables {
+  MINIMIZE?: boolean;
+}
+
+const configurationFactory = (
+  environmentVariables: EnvironmentVariables,
+): webpack.Configuration => {
+  const minimize = environmentVariables?.MINIMIZE ?? false;
 
   return {
     mode: "production",

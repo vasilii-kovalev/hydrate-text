@@ -13,13 +13,13 @@
     "/dist"
   ],
   "keywords": [
-    "javascript",
-    "typescript",
-    "template",
-    "string",
     "formatter",
-    "zero-dependency",
-    "tree-shakable"
+    "javascript",
+    "string",
+    "template",
+    "tree-shakable",
+    "typescript",
+    "zero-dependency"
   ],
   "author": "Vasilii Kovalev <vasilii.kovalev95@yandex.ru>",
   "license": "MIT",
@@ -59,7 +59,7 @@
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "lint": "npm run tslint && npm run eslint && npm run prettier:check",
-    "build:esm": "tsc -p tsconfig.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
     "build:cjs": "tsc -p tsconfig.node.json",
     "build:umd": "cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack",
     "build:umd:min": "npm run build:umd -- --env MINIMIZE",
