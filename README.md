@@ -34,9 +34,9 @@ A tiny library for dynamic text hydrating with variables.
 [releases-link]: https://github.com/vasilii-kovalev/hydrate-text/releases
 [build-badge]: https://flat.badgen.net/github/status/vasilii-kovalev/hydrate-text
 [builds-link]: https://github.com/vasilii-kovalev/hydrate-text/actions?query=workflow%3Abuild-test+branch%3Amain
-[min-size-badge]: https://flat.badgen.net/bundlephobia/min/hydrate-text@1.2.7
-[minzip-size-badge]: https://flat.badgen.net/bundlephobia/minzip/hydrate-text@1.2.7
-[size-link]: https://bundlephobia.com/result?p=hydrate-text@1.2.7
+[min-size-badge]: https://flat.badgen.net/bundlephobia/min/hydrate-text@2.0.0
+[minzip-size-badge]: https://flat.badgen.net/bundlephobia/minzip/hydrate-text@2.0.0
+[size-link]: https://bundlephobia.com/result?p=hydrate-text@2.0.0
 [dependencies-badge]: https://flat.badgen.net/david/dep/vasilii-kovalev/hydrate-text
 [dependencies-link]: https://david-dm.org/vasilii-kovalev/hydrate-text
 [dev-dependencies-badge]: https://flat.badgen.net/david/dev/vasilii-kovalev/hydrate-text
@@ -50,7 +50,7 @@ A tiny library for dynamic text hydrating with variables.
 [vulnerabilities-badge]: https://flat.badgen.net/snyk/vasilii-kovalev/hydrate-text
 [vulnerabilities-link]: https://snyk.io/test/github/vasilii-kovalev/hydrate-text
 [jsdelivr-hits-per-month-badge]: https://data.jsdelivr.com/v1/package/npm/hydrate-text/badge
-[jsdelivr-hits-per-month-link]: https://www.jsdelivr.com/package/npm/hydrate-text?version=1.2.7
+[jsdelivr-hits-per-month-link]: https://www.jsdelivr.com/package/npm/hydrate-text?version=2.0.0
 
 ## Features
 
@@ -92,10 +92,10 @@ console.log(hydrateText("Hello, {username}!", { username: "John Doe" }));
 | jsDelivr     | [jsDelivr (uncompressed)][jsdelivr-uncompressed-link] | [jsDelivr (compressed)][jsdelivr-compressed-link] |
 | UNPKG        | [UNPKG (uncompressed)][unpkg-uncompressed-link]       | [UNPKG (compressed)][unpkg-compressed-link]       |
 
-[jsdelivr-uncompressed-link]: https://cdn.jsdelivr.net/npm/hydrate-text@1.2.7/dist/umd/index.js
-[jsdelivr-compressed-link]: https://cdn.jsdelivr.net/npm/hydrate-text@1.2.7/dist/umd/index.min.js
-[unpkg-uncompressed-link]: https://unpkg.com/hydrate-text@1.2.7/dist/umd/index.js
-[unpkg-compressed-link]: https://unpkg.com/hydrate-text@1.2.7/dist/umd/index.min.js
+[jsdelivr-uncompressed-link]: https://cdn.jsdelivr.net/npm/hydrate-text@2.0.0/dist/umd/index.js
+[jsdelivr-compressed-link]: https://cdn.jsdelivr.net/npm/hydrate-text@2.0.0/dist/umd/index.min.js
+[unpkg-uncompressed-link]: https://unpkg.com/hydrate-text@2.0.0/dist/umd/index.js
+[unpkg-compressed-link]: https://unpkg.com/hydrate-text@2.0.0/dist/umd/index.min.js
 
 ```html
 <script src="library-CDN-link-here"></script>
