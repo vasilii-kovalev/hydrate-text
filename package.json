@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.16",
-    "@types/node": "^15.6.1",
+    "@types/node": "^16.0.0",
     "@types/terser-webpack-plugin": "^5.0.2",
     "@types/webpack": "^5.28.0",
     "@typescript-eslint/parser": "^4.9.0",
