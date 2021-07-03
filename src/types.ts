@@ -1,8 +1,6 @@
 type ValueType = string | number | boolean;
 
-interface Variables {
-  [key: string]: ValueType;
-}
+type Variables = Record<string, ValueType>;
 
 interface InterpolationOptions {
   prefix?: string;

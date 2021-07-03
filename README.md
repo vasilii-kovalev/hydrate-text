@@ -1,6 +1,6 @@
 # hydrate-text
 
-A tiny library for dynamic text hydrating with variables.
+A small, dependency-free and strongly typed template engine.
 
 [![Version][version-badge]][package-link]
 [![MIT License][license-badge]][license-link]
@@ -54,12 +54,17 @@ A tiny library for dynamic text hydrating with variables.
 
 ## Features
 
-- Light-weight
-- Dependency-free
-- Tree-shakable
-- Flexible interpolation options change
-- ES Module, CommonJS and UMD options are supported
-- Strongly typed with TypeScript
+- **Dependency-free**. Only development dependencies are installed.
+- **Tree-shakable**. Only imported code comes to your bundle.
+- **ES Module**, **CommonJS** and **UMD** options are supported
+- **Light-weight**:
+  - ESM: **791-833 bytes** (depends on imported functions)
+  - CJS: **791-833 bytes** (depends on imported functions)
+  - UMD:
+    - Uncompressed: **4.16 KiB**
+    - Compressed: **1.07 KiB**
+- Strongly typed with **TypeScript**.
+- **Flexible interpolation options change**. Change variables' markers in each function or use a configurer.
 
 ## Installation and usage examples
 
@@ -143,6 +148,29 @@ console.log(
     },
   ),
 );
+```
+
+## API
+
+```typescript
+type ValueType = string | number | boolean;
+
+type Variables = Record<string, ValueType>;
+
+interface InterpolationOptions {
+  prefix?: string;
+  suffix?: string;
+}
+
+function hydrateText(
+  text: string,
+  variables?: Variables,
+  interpolationOptions?: InterpolationOptions,
+) {}
+
+function configureHydrateText(
+  interpolationOptions?: InterpolationOptions,
+) => typeof hydrateText;
 ```
 
 ## License
