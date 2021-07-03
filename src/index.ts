@@ -12,29 +12,40 @@ import { escapeRegExp, isNil } from './utils';
 const hydrateText: HydrateText = (
   text,
   variables = {},
-  customVariableBorders,
+  interpolationOptions,
 ) => {
-  const { prefix, suffix }: InterpolationOptions = customVariableBorders
+  const { prefix, suffix }: InterpolationOptions = interpolationOptions
     ? {
         ...EMPTY_INTERPOLATION_OPTIONS,
-        ...customVariableBorders,
+        ...interpolationOptions,
       }
     : DEFAULT_INTERPOLATION_OPTIONS;
 
-  return Object.entries(variables).reduce((result, [key, value]) => {
-    if (isNil(value)) {
-      return result;
-    }
+  const resultText = Object.entries(variables).reduce(
+    (resultText, [name, value]) => {
+      if (isNil(value)) {
+        return resultText;
+      }
 
-    const regExpSource = escapeRegExp(`${prefix}${key}${suffix}`);
-    const regExp = new RegExp(regExpSource, 'g');
+      const regExpSource = escapeRegExp(`${prefix}${name}${suffix}`);
+      const regExp = new RegExp(regExpSource, 'g');
 
-    return result.replace(regExp, String(value));
-  }, text);
+      return resultText.replace(regExp, String(value));
+    },
+    text,
+  );
+
+  return resultText;
 };
 
 const configureHydrateText: ConfigureHydrateText =
-  variableBorders => (text, variables, customVariableBorders) =>
-    hydrateText(text, variables, customVariableBorders || variableBorders);
+  interpolationOptionsFromConfigurer =>
+  (text, variables, interpolationOptionsFromInnerFunction) => {
+    const interpolationOptions =
+      interpolationOptionsFromInnerFunction ??
+      interpolationOptionsFromConfigurer;
+
+    return hydrateText(text, variables, interpolationOptions);
+  };
 
 export { configureHydrateText, hydrateText };

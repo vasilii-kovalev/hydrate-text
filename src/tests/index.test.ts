@@ -2,90 +2,104 @@ import { configureHydrateText, hydrateText } from '..';
 import { HydrateText, Variables } from '../types';
 
 describe('hydrateText', () => {
-  const textSimple = 'Simple text';
-  const textWithVariables = 'Hello, {0} {user1} and {1} {user2}';
-  const textWithNoise = 'Hello, {0} {{user1}} and {{1}} {user2}';
-  const variablesObject: Variables = {
-    0: 'mr.',
-    1: 'miss',
-    age: 2,
-    alive: true,
-    user1: 'John',
-    user2: 'Sarah',
-  };
+  describe('default interpolation options', () => {
+    const textWithoutVariables = 'Simple text';
+    const variables: Variables = {
+      0: 'mr.',
+      1: 'miss',
+      age: 2,
+      alive: true,
+      user1: 'John',
+      user2: 'Sarah',
+    };
 
-  const mainPageRoute = '/';
-  const route = '/some/route';
-  const routeWithVariable = '/some/route/:variableName';
-  const routeWithVariables = '/some/route/:variableName/:variableId';
-  const oneVariable: Variables = { variableName: 'hello' };
-  const twoVariables: Variables = {
-    variableName: 'hello',
-    variableId: 1,
-  };
-  const variablesWithUndefinedAndNull: Variables = {
-    variableName: null,
-    variableId: undefined,
-  };
-
-  describe('with default interpolation options', () => {
-    it(`should keep "simple text" as is
+    it(`should keep "textWithoutVariables" as is
     if "variables" is not provided`, () => {
-      expect(hydrateText(textSimple)).toBe(textSimple);
+      const resultText = hydrateText(textWithoutVariables);
+
+      expect(resultText).toBe(textWithoutVariables);
     });
 
-    it('should keep "simple text" as is if "variables" is an object', () => {
-      expect(hydrateText(textSimple, variablesObject)).toBe(textSimple);
+    it(`should keep "textWithoutVariables" as is
+    if "variables" is provided`, () => {
+      const resultText = hydrateText(textWithoutVariables, variables);
+
+      expect(resultText).toBe(textWithoutVariables);
     });
+
+    const textWithVariables = 'Hello, {0} {user1} and {1} {user2}';
 
     it(`should keep "textWithVariables" as is
     if "variables" is not provided`, () => {
-      expect(hydrateText(textWithVariables)).toBe(textWithVariables);
+      const resultText = hydrateText(textWithVariables);
+
+      expect(resultText).toBe(textWithVariables);
     });
 
     it(`should replace correct variables in "textWithVariables"
-    when "variables" is provided`, () => {
-      const resultText = hydrateText(textWithVariables, variablesObject);
+    if "variables" is provided`, () => {
+      const resultText = hydrateText(textWithVariables, variables);
 
       expect(resultText).toBe('Hello, mr. John and miss Sarah');
     });
 
+    const textWithNoise = 'Hello, {0} {{user1}} and {{1}} {user2}';
+
     it(`should keep "textWithNoise" as is
     if "variables" is not provided`, () => {
-      expect(hydrateText(textWithNoise)).toBe(textWithNoise);
+      const resultText = hydrateText(textWithNoise);
+
+      expect(resultText).toBe(textWithNoise);
     });
 
     it(`should replace correct variables in "textWithNoise"
-    when "variables" is provided`, () => {
-      const resultText = hydrateText(textWithNoise, variablesObject);
+    if "variables" is provided`, () => {
+      const resultText = hydrateText(textWithNoise, variables);
 
       expect(resultText).toBe('Hello, mr. {John} and {miss} Sarah');
     });
   });
 
-  describe('with custom interpolation options', () => {
+  describe('custom interpolation options', () => {
+    const oneVariable: Variables = { variableName: 'hello' };
     const replaceRouteVariables: HydrateText = (text, variables) =>
       hydrateText(text, variables, { prefix: ':' });
 
-    it('should keep "mainPageRoute" as is', () => {
-      const resultText = replaceRouteVariables(mainPageRoute, oneVariable);
+    it('should keep "routeHome" as is', () => {
+      const routeHome = '/';
 
-      expect(resultText).toBe(mainPageRoute);
+      const resultText = replaceRouteVariables(routeHome, oneVariable);
+
+      expect(resultText).toBe(routeHome);
     });
 
-    it('should keep "route" as is', () => {
-      const resultText = replaceRouteVariables(route, oneVariable);
+    it('should keep "routeWithoutVariables" as is', () => {
+      const routeWithoutVariables = '/some/route';
 
-      expect(resultText).toBe(route);
+      const resultText = replaceRouteVariables(
+        routeWithoutVariables,
+        oneVariable,
+      );
+
+      expect(resultText).toBe(routeWithoutVariables);
     });
 
     it('should replace correct variables in "routeWithVariable"', () => {
+      const routeWithVariable = '/some/route/:variableName';
+
       const resultText = replaceRouteVariables(routeWithVariable, oneVariable);
 
       expect(resultText).toBe('/some/route/hello');
     });
 
+    const routeWithVariables = '/some/route/:variableName/:variableId';
+
     it('should replace correct variables in "routeWithVariables"', () => {
+      const twoVariables: Variables = {
+        variableName: 'hello',
+        variableId: 1,
+      };
+
       const resultText = replaceRouteVariables(
         routeWithVariables,
         twoVariables,
@@ -96,6 +110,12 @@ describe('hydrateText', () => {
 
     it(`should keep "routeWithVariables" as is
     if variables are nullish values`, () => {
+      // Check a fallback if types don't work, e.g. when using the CDN script.
+      const variablesWithUndefinedAndNull: Variables = {
+        variableId: undefined as unknown as any,
+        variableName: null as any,
+      };
+
       const resultText = replaceRouteVariables(
         routeWithVariables,
         variablesWithUndefinedAndNull,
@@ -104,31 +124,30 @@ describe('hydrateText', () => {
       expect(resultText).toBe('/some/route/:variableName/:variableId');
     });
   });
+});
 
-  describe('configureHydrateText', () => {
-    const replaceRouteVariables = configureHydrateText({ prefix: ':' });
-    const routeWithVariableWithCustomInterpolationOptions =
-      '/some/route/(variableName)';
+describe('configureHydrateText', () => {
+  const oneVariable: Variables = { variableName: 'hello' };
+  const replaceRouteVariables = configureHydrateText({ prefix: ':' });
 
-    it(`should replace correct variables in "routeWithVariable"
-    with interpolation options set in configureHydrateText`, () => {
-      const resultText = replaceRouteVariables(routeWithVariable, oneVariable);
+  it(`should replace correct variables in "routeWithVariable"
+  with custom interpolation options set in configureHydrateText`, () => {
+    const routeWithVariable = '/some/route/:variableName';
 
-      expect(resultText).toBe('/some/route/hello');
+    const resultText = replaceRouteVariables(routeWithVariable, oneVariable);
+
+    expect(resultText).toBe('/some/route/hello');
+  });
+
+  it(`should replace correct variables in "routeWithVariable"
+  with interpolation options set in replaceRouteVariables`, () => {
+    const routeWithVariable = '/some/route/(variableName)';
+
+    const resultText = replaceRouteVariables(routeWithVariable, oneVariable, {
+      prefix: '(',
+      suffix: ')',
     });
 
-    it(`should replace correct variables in "routeWithVariable"
-    with interpolation options set in replaceRouteVariables`, () => {
-      const resultText = replaceRouteVariables(
-        routeWithVariableWithCustomInterpolationOptions,
-        oneVariable,
-        {
-          prefix: '(',
-          suffix: ')',
-        },
-      );
-
-      expect(resultText).toBe('/some/route/hello');
-    });
+    expect(resultText).toBe('/some/route/hello');
   });
 });

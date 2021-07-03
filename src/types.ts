@@ -1,4 +1,4 @@
-type ValueType = string | number | boolean | undefined | null;
+type ValueType = string | number | boolean;
 
 interface Variables {
   [key: string]: ValueType;

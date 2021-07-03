@@ -52,56 +52,16 @@ A tiny library for dynamic text hydrating with variables.
 [jsdelivr-hits-per-month-badge]: https://data.jsdelivr.com/v1/package/npm/hydrate-text/badge
 [jsdelivr-hits-per-month-link]: https://www.jsdelivr.com/package/npm/hydrate-text?version=1.2.7
 
-## Example
-
-```typescript
-import { hydrateText } from 'hydrate-text';
-
-const text = 'Hello, {username}!';
-const route = '/users/:userId';
-
-// 'Hello, John Doe!'
-console.log(hydrateText(text, { username: 'John Doe' }));
-
-// '/users/1'
-console.log(hydrateText(route, { userId: 1 }, { prefix: ':' }));
-```
-
-Initial variables syntax can be configured via `configureHydrateText`, that
-returns `hydrateText` function as a result.
-
-```typescript
-import { configureHydrateText } from 'hydrate-text';
-
-const route = '/users/:userId';
-const routeWithCustomInterpolationOptions = '/users/(userId)';
-
-const replaceRouteVariables = configureHydrateText({ prefix: ':' });
-
-// '/users/1'
-replaceRouteVariables(route, { userId: 1 });
-
-// '/users/1'
-replaceRouteVariables(
-  routeWithCustomInterpolationOptions,
-  { userId: 1 },
-  {
-    prefix: '(',
-    suffix: ')',
-  },
-);
-```
-
 ## Features
 
 - Light-weight
 - Dependency-free
 - Tree-shakable
 - Flexible interpolation options change
-- ES Module, CommonJS and UMD options are available
+- ES Module, CommonJS and UMD options are supported
 - Strongly typed with TypeScript
 
-## Installation
+## Installation and examples
 
 ### npm
 
@@ -115,77 +75,72 @@ npm install hydrate-text
 yarn add hydrate-text
 ```
 
+```typescript
+// ES Modules syntax
+import { hydrateText } from 'hydrate-text';
+// CommonJS syntax
+const hydrateText = require('hydrate-text').hydrateText;
+
+// 'Hello, John Doe!'
+console.log(hydrateText('Hello, {username}!', { username: 'John Doe' }));
+```
+
 ### CDN
 
-<table>
-  <thead>
-    <tr>
-      <th>Compression option</th>
-      <th>Links</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan=2>
-        <img
-          src="https://flat.badgen.net/badgesize/normal/https/unpkg.com/hydrate-text@1.2.7/dist/umd/index.js?label=Uncompressed"
-          alt="Uncompressed package bundle size"
-        >
-      </td>
-      <td>
-        <a href="https://unpkg.com/hydrate-text@1.2.7/dist/umd/index.js">
-          <img
-            src="https://flat.badgen.net/badge/%20%20%20/UNPKG/green"
-            alt="Link to uncompressed UMD package on UNPKG"
-          >
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://cdn.jsdelivr.net/npm/hydrate-text@1.2.7/dist/umd/index.js">
-          <img
-            src="https://flat.badgen.net/badge/icon/jsdelivr?icon=jsdelivr&label&color=green"
-            alt="Link to uncompressed UMD package on jsDelivr"
-          />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td rowspan=2>
-        <img
-          src="https://flat.badgen.net/badgesize/normal/https/unpkg.com/hydrate-text@1.2.7/dist/umd/index.min.js?label=Minified"
-          alt="Minified package bundle size"
-        >
-      </td>
-      <td>
-        <a href="https://unpkg.com/hydrate-text@1.2.7/dist/umd/index.min.js">
-          <img
-            src="https://flat.badgen.net/badge/%20%20%20/UNPKG/green"
-            alt="Link to minified UMD package on UNPKG"
-          >
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://cdn.jsdelivr.net/npm/hydrate-text@1.2.7/dist/umd/index.min.js">
-          <img
-            src="https://flat.badgen.net/badge/icon/jsdelivr?icon=jsdelivr&label&color=green"
-            alt="Link to minified UMD package on jsDelivr"
-          />
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| CDN provider | Uncompressed                                          | Compressed                                        |
+| ------------ | ----------------------------------------------------- | ------------------------------------------------- |
+| jsDelivr     | [jsDelivr (uncompressed)][jsdelivr-uncompressed-link] | [jsDelivr (compressed)][jsdelivr-compressed-link] |
+| UNPKG        | [UNPKG (uncompressed)][unpkg-uncompressed-link]       | [UNPKG (compressed)][unpkg-compressed-link]       |
+
+[jsdelivr-uncompressed-link]: https://cdn.jsdelivr.net/npm/hydrate-text@1.2.7/dist/umd/index.js
+[jsdelivr-compressed-link]: https://cdn.jsdelivr.net/npm/hydrate-text@1.2.7/dist/umd/index.min.js
+[unpkg-uncompressed-link]: https://unpkg.com/hydrate-text@1.2.7/dist/umd/index.js
+[unpkg-compressed-link]: https://unpkg.com/hydrate-text@1.2.7/dist/umd/index.min.js
 
 ```html
-<script src="link-to-library.js"></script>
+<script src="library-CDN-link-here"></script>
 <script>
-  const { hydrateText: ht } = HydrateText;
+  const { hydrateText } = HydrateText;
 
   // 'Hello, John Doe!'
-  console.log(ht('Hello, {username}!', { username: 'John Doe' }));
+  console.log(hydrateText('Hello, {username}!', { username: 'John Doe' }));
 </script>
+```
+
+## More examples
+
+```typescript
+import { hydrateText } from 'hydrate-text';
+
+const route = '/users/:userId';
+
+// '/users/1'
+console.log(hydrateText(route, { userId: 1 }, { prefix: ':' }));
+```
+
+Interpolation options can be configured via `configureHydrateText` function,
+that returns `hydrateText` function as a result.
+
+```typescript
+import { configureHydrateText } from 'hydrate-text';
+
+const route = '/users/:userId';
+const routeWithCustomInterpolationOptions = '/users/(userId)';
+
+const replaceRouteVariables = configureHydrateText({ prefix: ':' });
+
+// '/users/1'
+console.log(replaceRouteVariables(route, { userId: 1 }));
+
+// '/users/1'
+console.log(
+  replaceRouteVariables(
+    routeWithCustomInterpolationOptions,
+    { userId: 1 },
+    {
+      prefix: '(',
+      suffix: ')',
+    },
+  ),
+);
 ```
