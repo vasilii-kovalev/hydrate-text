@@ -27,6 +27,9 @@ const escapeRegExp = (value?: string): string => {
 
   Checks if `value` is `null` or `undefined`.
 */
-const isNil = (value: any): value is null | undefined => value == null;
+// eslint-disable-next-line
+const isNil = (value: any): value is null | undefined => {
+  return value == null;
+};
 
 export { escapeRegExp, isNil };

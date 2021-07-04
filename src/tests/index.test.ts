@@ -112,7 +112,9 @@ describe("hydrateText", () => {
     if variables are nullish values`, () => {
       // Check a fallback if types don't work, e.g. in JavaScript files.
       const variablesWithUndefinedAndNull: Variables = {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         variableId: undefined as unknown as any,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         variableName: null as any,
       };
 
