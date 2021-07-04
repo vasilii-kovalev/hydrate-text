@@ -23,7 +23,7 @@ A small, dependency-free and strongly typed template engine.
 [minzip-size-badge]: https://flat.badgen.net/bundlephobia/minzip/hydrate-text@2.0.0
 [size-link]: https://bundlephobia.com/result?p=hydrate-text@2.0.0
 [types-badge]: https://flat.badgen.net/npm/types/hydrate-text
-[types-link]: https://github.com/vasilii-kovalev/hydrate-text/blob/main/src/index.ts#L3-L24
+[types-link]: https://github.com/vasilii-kovalev/hydrate-text/blob/main/src/types.ts
 [coverage-badge]: https://flat.badgen.net/coveralls/c/github/vasilii-kovalev/hydrate-text
 [coverage-link]: https://coveralls.io/github/vasilii-kovalev/hydrate-text
 [vulnerabilities-badge]: https://flat.badgen.net/snyk/vasilii-kovalev/hydrate-text
