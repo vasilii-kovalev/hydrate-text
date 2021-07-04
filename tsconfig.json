@@ -13,5 +13,5 @@
     "target": "es6",
     "types": ["jest", "node"]
   },
-  "include": ["src", "webpack.config.ts"]
+  "include": ["src"]
 }

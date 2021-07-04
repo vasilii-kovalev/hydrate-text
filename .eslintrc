@@ -1,5 +1,7 @@
 {
+  "parser": "@typescript-eslint/parser",
   "rules": {
+    "import/prefer-default-export": "off",
     "sort-imports": [
       "error",
       {
@@ -7,21 +9,6 @@
         "ignoreDeclarationSort": true,
         "ignoreMemberSort": false
       }
-    ],
-    "import/prefer-default-export": "off"
-  },
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": "tsconfig.json"
-  },
-  "env": {
-    "jest": true
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [".ts"]
-      }
-    }
+    ]
   }
 }
