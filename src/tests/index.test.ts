@@ -110,7 +110,7 @@ describe("hydrateText", () => {
 
     it(`should keep "routeWithVariables" as is
     if variables are nullish values`, () => {
-      // Check a fallback if types don't work, e.g. when using the CDN script.
+      // Check a fallback if types don't work, e.g. in JavaScript files.
       const variablesWithUndefinedAndNull: Variables = {
         variableId: undefined as unknown as any,
         variableName: null as any,
