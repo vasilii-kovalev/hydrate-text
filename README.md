@@ -64,14 +64,14 @@ const routeWithCustomInterpolationOptions = "/users/(userId)";
 
 const hydrateRoute = configureHydrateText({ prefix: ":" });
 
-// '/users/1'
-console.log(hydrateRoute(route, { userId: 1 }));
+// '/users/2'
+console.log(hydrateRoute(route, { userId: 2 }));
 
-// '/users/1'
+// '/users/3'
 console.log(
   hydrateRoute(
     routeWithCustomInterpolationOptions,
-    { userId: 1 },
+    { userId: 3 },
     {
       prefix: "(",
       suffix: ")",
