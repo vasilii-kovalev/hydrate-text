@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./dist/types/",
+    "noEmit": false,
+    "outDir": "./dist/esm/"
+  },
+  "exclude": [
+    "**/*.test.ts",
+    /*
+      Fixes error TS5055 ("Cannot write file '.../dist/typings/....d.ts' because
+      it would overwrite input file.
+    */
+    "dist/*"
+  ]
+}

@@ -1,64 +1,58 @@
-import { escapeRegExp, isNil } from './utils';
+import {
+  DEFAULT_INTERPOLATION_OPTIONS,
+  EMPTY_INTERPOLATION_OPTIONS,
+} from "./constants";
+import {
+  ConfigureHydrateText,
+  HydrateText,
+  InterpolationOptions,
+} from "./types";
+import { escapeRegExp, isNil } from "./utils";
 
-export type ValueTypes = string | number | boolean | undefined | null;
-
-export interface Variables {
-  [key: string]: ValueTypes;
-}
-
-export interface VariableBorders {
-  start?: string;
-  end?: string;
-}
-
-export interface HydrateText {
-  (
-    text: string,
-    variables?: Variables | ValueTypes[],
-    customVariableBorders?: VariableBorders,
-  ): string;
-}
-
-export interface ConfigureHydrateText {
-  (variableBorders?: VariableBorders): HydrateText;
-}
-
-const defaultVariableBorders: VariableBorders = {
-  start: '{',
-  end: '}',
-};
-
-const emptyVariableBorders: VariableBorders = {
-  start: '',
-  end: '',
-};
-
-export const hydrateText: HydrateText = (
+const hydrateText: HydrateText = (
   text,
   variables = {},
-  customVariableBorders,
+  interpolationOptions,
 ) => {
-  const { start, end }: VariableBorders = customVariableBorders
+  const { prefix, suffix }: InterpolationOptions = interpolationOptions
     ? {
-        ...emptyVariableBorders,
-        ...customVariableBorders,
+        ...EMPTY_INTERPOLATION_OPTIONS,
+        ...interpolationOptions,
       }
-    : defaultVariableBorders;
+    : DEFAULT_INTERPOLATION_OPTIONS;
 
-  return Object.entries(variables).reduce((result, [key, value]) => {
-    if (isNil(value)) {
-      return result;
-    }
+  const resultText = Object.entries(variables).reduce(
+    (resultText, [name, value]) => {
+      if (isNil(value)) {
+        return resultText;
+      }
 
-    const regExpSource = escapeRegExp(`${start}${key}${end}`);
-    const regExp = new RegExp(regExpSource, 'g');
+      const regExpSource = escapeRegExp(`${prefix}${name}${suffix}`);
+      const regExp = new RegExp(regExpSource, "g");
 
-    return result.replace(regExp, String(value));
-  }, text);
+      return resultText.replace(regExp, String(value));
+    },
+    text,
+  );
+
+  return resultText;
 };
 
-export const configureHydrateText: ConfigureHydrateText = variableBorders => (
-  text,
-  variables,
-  customVariableBorders,
-) => hydrateText(text, variables, customVariableBorders || variableBorders);
+const configureHydrateText: ConfigureHydrateText =
+  interpolationOptionsFromConfigurer =>
+  (text, variables, interpolationOptionsFromInnerFunction) => {
+    const interpolationOptions =
+      interpolationOptionsFromInnerFunction ??
+      interpolationOptionsFromConfigurer;
+
+    return hydrateText(text, variables, interpolationOptions);
+  };
+
+export { configureHydrateText, hydrateText };
+export type {
+  ConfigureHydrateText,
+  HydrateText,
+  InterpolationOptions,
+  ValueType,
+  Variables,
+} from "./types";

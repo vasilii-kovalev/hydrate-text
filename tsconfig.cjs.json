@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.esm.json",
+  "compilerOptions": {
+    /*
+      The "ESM" config generates the type declarations, so no need to overwrite
+      them.
+    */
+    "declaration": false,
+    "declarationDir": null,
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "dist/cjs"
+  }
+}
