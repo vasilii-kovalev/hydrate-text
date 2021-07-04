@@ -1,7 +1,7 @@
-# Artifacts:
-.next
-build
+# Artifacts
 dist
+
+# Coverage directory
 coverage
 
 # GitHub Workflow
