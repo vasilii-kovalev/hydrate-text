@@ -49,3 +49,10 @@ const configureHydrateText: ConfigureHydrateText =
   };
 
 export { configureHydrateText, hydrateText };
+export type {
+  ConfigureHydrateText,
+  HydrateText,
+  InterpolationOptions,
+  ValueType,
+  Variables,
+} from "./types";

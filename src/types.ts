@@ -23,5 +23,6 @@ export type {
   ConfigureHydrateText,
   HydrateText,
   InterpolationOptions,
+  ValueType,
   Variables,
 };

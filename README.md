@@ -31,11 +31,11 @@ A small, dependency-free and strongly typed template engine.
 
 ## Features
 
-- **Light-weight**. Less then 1 KiB (actual size depends on imported functions).
+- **Light-weight**. Less than 1 KiB (actual size depends on imported functions).
 - **Dependency-free**. Only development dependencies are installed.
 - **Tree-shakable**. Only imported code comes to your bundle.
 - **ES Modules** and **CommonJS** syntax are supported.
-- Strongly typed with **TypeScript**.
+- Strongly typed with **TypeScript**. All types are exported alongside with the core functions.
 - **Flexible interpolation options change**. Change variables' markers in each function or use a special function to configure them once for further usage.
 
 ## Examples
