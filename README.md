@@ -31,7 +31,7 @@ A small, dependency-free and strongly typed template engine.
 
 ## Features
 
-- **Light-weight**. less then 1 KiB (actual size depends on imported functions).
+- **Light-weight**. Less then 1 KiB (actual size depends on imported functions).
 - **Dependency-free**. Only development dependencies are installed.
 - **Tree-shakable**. Only imported code comes to your bundle.
 - **ES Modules** and **CommonJS** syntax are supported.

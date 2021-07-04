@@ -10,9 +10,9 @@
     "/dist"
   ],
   "keywords": [
-    "formatter",
     "javascript",
     "string",
+    "template engine",
     "template",
     "tree-shakable",
     "typescript",
