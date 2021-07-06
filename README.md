@@ -19,9 +19,9 @@ A small, dependency-free and strongly typed template engine.
 [downloads-link]: https://npmcharts.com/compare/hydrate-text?interval=30
 [depend-badge]: https://flat.badgen.net/npm/dependents/hydrate-text
 [depend-link]: https://www.npmjs.com/browse/depended/hydrate-text
-[min-size-badge]: https://flat.badgen.net/bundlephobia/min/hydrate-text@2.0.0
-[minzip-size-badge]: https://flat.badgen.net/bundlephobia/minzip/hydrate-text@2.0.0
-[size-link]: https://bundlephobia.com/result?p=hydrate-text@2.0.0
+[min-size-badge]: https://flat.badgen.net/bundlephobia/min/hydrate-text
+[minzip-size-badge]: https://flat.badgen.net/bundlephobia/minzip/hydrate-text
+[size-link]: https://bundlephobia.com/package/hydrate-text
 [types-badge]: https://flat.badgen.net/npm/types/hydrate-text
 [types-link]: https://github.com/vasilii-kovalev/hydrate-text/blob/main/src/types.ts
 [coverage-badge]: https://flat.badgen.net/coveralls/c/github/vasilii-kovalev/hydrate-text
@@ -116,6 +116,10 @@ function configureHydrateText(
   interpolationOptions?: InterpolationOptions,
 ) => typeof hydrateText;
 ```
+
+## Background
+
+[Why I wrote "hydrate-text" library](https://vasilii-kovalev.github.io/blog/posts/why-i-wrote-hydrate-text-library)
 
 ## License
 
