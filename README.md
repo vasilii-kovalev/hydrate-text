@@ -50,7 +50,20 @@ const hydrateText = require("hydrate-text").hydrateText;
 console.log(hydrateText("Hello, {username}!", { username: "John Doe" }));
 
 // '/users/1'
-console.log(hydrateText("/users/:userId", { userId: 1 }, { prefix: ":" }));
+console.log(
+  hydrateText(
+    "/users/:userId",
+    { userId: 1 },
+    /*
+      If the interpolation options object is passed, `prefix` and `suffix`
+      become empty strings by default, so you don't have to set it manually for
+      unpaired markers.
+    */
+    {
+      prefix: ":",
+    },
+  ),
+);
 ```
 
 Interpolation options can be configured via `configureHydrateText` function,

@@ -108,8 +108,7 @@ describe("hydrateText", () => {
       expect(resultText).toBe("/some/route/hello/1");
     });
 
-    it(`should keep "routeWithVariables" as is
-    if variables are nullish values`, () => {
+    it("should replace variables if the variables are nullish values", () => {
       // Check a fallback if types don't work, e.g. in JavaScript files.
       const variablesWithUndefinedAndNull: Variables = {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -123,7 +122,42 @@ describe("hydrateText", () => {
         variablesWithUndefinedAndNull,
       );
 
-      expect(resultText).toBe("/some/route/:variableName/:variableId");
+      expect(resultText).toBe("/some/route/null/undefined");
+    });
+
+    const pangram = "The quick brown fox jumps over the lazy dog";
+
+    it(`should replace a variable
+    if prefix and suffix are empty strings (the variable is a word)`, () => {
+      const resultText = hydrateText(
+        pangram,
+        { fox: "FOX" },
+        { prefix: "", suffix: "" },
+      );
+
+      expect(resultText).toBe("The quick brown FOX jumps over the lazy dog");
+    });
+
+    it(`should replace a variable
+    if prefix and suffix are empty strings (the variable is a letter)`, () => {
+      const resultText = hydrateText(
+        pangram,
+        { e: "(E)" },
+        { prefix: "", suffix: "" },
+      );
+
+      expect(resultText).toBe(
+        "Th(E) quick brown fox jumps ov(E)r th(E) lazy dog",
+      );
+    });
+
+    it(`should replace a variable
+    if the interpolation options object is empty`, () => {
+      const resultText = hydrateText(pangram, { e: "(E)" }, {});
+
+      expect(resultText).toBe(
+        "Th(E) quick brown fox jumps ov(E)r th(E) lazy dog",
+      );
     });
   });
 });
