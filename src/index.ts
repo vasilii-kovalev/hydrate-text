@@ -7,7 +7,7 @@ import {
   HydrateText,
   InterpolationOptions,
 } from "./types";
-import { escapeRegExp, isNil } from "./utils";
+import { escapeRegExp } from "./utils";
 
 const hydrateText: HydrateText = (
   text,
@@ -23,10 +23,6 @@ const hydrateText: HydrateText = (
 
   const resultText = Object.entries(variables).reduce(
     (resultText, [name, value]) => {
-      if (isNil(value)) {
-        return resultText;
-      }
-
       const regExpSource = escapeRegExp(`${prefix}${name}${suffix}`);
       const regExp = new RegExp(regExpSource, "g");
 

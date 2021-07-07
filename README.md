@@ -19,11 +19,11 @@ A small, dependency-free and strongly typed template engine.
 [downloads-link]: https://npmcharts.com/compare/hydrate-text?interval=30
 [depend-badge]: https://flat.badgen.net/npm/dependents/hydrate-text
 [depend-link]: https://www.npmjs.com/browse/depended/hydrate-text
-[min-size-badge]: https://flat.badgen.net/bundlephobia/min/hydrate-text@2.0.0
-[minzip-size-badge]: https://flat.badgen.net/bundlephobia/minzip/hydrate-text@2.0.0
-[size-link]: https://bundlephobia.com/result?p=hydrate-text@2.0.0
+[min-size-badge]: https://flat.badgen.net/bundlephobia/min/hydrate-text
+[minzip-size-badge]: https://flat.badgen.net/bundlephobia/minzip/hydrate-text
+[size-link]: https://bundlephobia.com/package/hydrate-text
 [types-badge]: https://flat.badgen.net/npm/types/hydrate-text
-[types-link]: https://github.com/vasilii-kovalev/hydrate-text/blob/main/src/index.ts#L3-L24
+[types-link]: https://github.com/vasilii-kovalev/hydrate-text/blob/main/src/types.ts
 [coverage-badge]: https://flat.badgen.net/coveralls/c/github/vasilii-kovalev/hydrate-text
 [coverage-link]: https://coveralls.io/github/vasilii-kovalev/hydrate-text
 [vulnerabilities-badge]: https://flat.badgen.net/snyk/vasilii-kovalev/hydrate-text
@@ -50,7 +50,20 @@ const hydrateText = require("hydrate-text").hydrateText;
 console.log(hydrateText("Hello, {username}!", { username: "John Doe" }));
 
 // '/users/1'
-console.log(hydrateText("/users/:userId", { userId: 1 }, { prefix: ":" }));
+console.log(
+  hydrateText(
+    "/users/:userId",
+    { userId: 1 },
+    /*
+      If the interpolation options object is passed, `prefix` and `suffix`
+      become empty strings by default, so you don't have to set it manually for
+      unpaired markers.
+    */
+    {
+      prefix: ":",
+    },
+  ),
+);
 ```
 
 Interpolation options can be configured via `configureHydrateText` function,
@@ -116,6 +129,10 @@ function configureHydrateText(
   interpolationOptions?: InterpolationOptions,
 ) => typeof hydrateText;
 ```
+
+## Background
+
+[Why I wrote "hydrate-text" library](https://vasilii-kovalev.github.io/blog/posts/why-i-wrote-hydrate-text-library)
 
 ## License
 

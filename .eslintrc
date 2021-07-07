@@ -1,4 +1,9 @@
 {
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "rules": {
     "import/prefer-default-export": "off",
