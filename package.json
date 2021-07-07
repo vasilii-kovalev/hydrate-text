@@ -1,6 +1,6 @@
 {
   "name": "hydrate-text",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "A small, dependency-free and strongly typed template engine.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
