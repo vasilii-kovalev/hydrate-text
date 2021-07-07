@@ -108,7 +108,7 @@ describe("hydrateText", () => {
       expect(resultText).toBe("/some/route/hello/1");
     });
 
-    it("should replace variables if the variables are nullish values", () => {
+    it("should replace variables if they contain nullish values", () => {
       // Check a fallback if types don't work, e.g. in JavaScript files.
       const variablesWithUndefinedAndNull: Variables = {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
