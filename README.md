@@ -32,7 +32,7 @@ A small, dependency-free and strongly typed template engine.
 ## Features
 
 - **Light-weight**. Less than 1 KiB (actual size depends on imported functions).
-- **Dependency-free**. Only development dependencies are installed.
+- **Dependency-free**. Only bundled JavaScript files and TypeScript type declarations.
 - **Tree-shakable**. Only imported code comes to your bundle.
 - **ES Modules** and **CommonJS** syntax are supported.
 - Strongly typed with **TypeScript**. All types are exported alongside with the core functions.
@@ -46,22 +46,44 @@ import { hydrateText } from "hydrate-text";
 // CommonJS syntax
 const hydrateText = require("hydrate-text").hydrateText;
 
-// 'Hello, John Doe!'
-console.log(hydrateText("Hello, {username}!", { username: "John Doe" }));
+// 'Hello, John!'
+console.log(
+  hydrateText("Hello, {username}!", {
+    username: "John",
+  }),
+);
 
-// '/users/1'
+// '/users/42'
 console.log(
   hydrateText(
-    "/users/:userId",
-    { userId: 1 },
-    /*
-      If the interpolation options object is passed, `prefix` and `suffix`
-      become empty strings by default, so you don't have to set it manually for
-      unpaired markers.
-    */
+    "/users/:id",
+    { id: 42 },
     {
       prefix: ":",
+      suffix: "",
     },
+  ),
+);
+```
+
+TypeScript checks that all the variables defined in the given string are provided.
+
+```typescript
+console.log(
+  hydrateText(
+    "Hello, {username}!",
+    // No errors
+    {
+      username: "John",
+    },
+  ),
+);
+
+console.log(
+  hydrateText(
+    "Hello, {username}!",
+    // Error: `username` is missing
+    {},
   ),
 );
 ```
@@ -72,19 +94,16 @@ that returns `hydrateText` function as a result.
 ```typescript
 import { configureHydrateText } from "hydrate-text";
 
-const route = "/users/:userId";
-const routeWithCustomInterpolationOptions = "/users/(userId)";
-
 const hydrateRoute = configureHydrateText({ prefix: ":" });
 
-// '/users/2'
-console.log(hydrateRoute(route, { userId: 2 }));
+// '/users/42'
+console.log(hydrateRoute("/users/:id", { id: 42 }));
 
-// '/users/3'
+// '/users/42'
 console.log(
   hydrateRoute(
-    routeWithCustomInterpolationOptions,
-    { userId: 3 },
+    "/users/(id)",
+    { id: 42 },
     {
       prefix: "(",
       suffix: ")",
@@ -92,6 +111,8 @@ console.log(
   ),
 );
 ```
+
+Check out other [correct](./src/tests/index.types.ts) and [incorrect](./src/tests/index.errors.ts) usage examples.
 
 ## Installation
 
@@ -107,28 +128,28 @@ npm install hydrate-text
 yarn add hydrate-text
 ```
 
-## API
+## API (simplified)
 
 ```typescript
-type ValueType = string | number | boolean;
-
-type Variables = Record<string, ValueType>;
+type ValueType = string | boolean | number | bigint;
 
 interface InterpolationOptions {
-  prefix?: string;
-  suffix?: string;
+  prefix: string;
+  suffix: string;
 }
 
 function hydrateText(
   text: string,
-  variables?: Variables,
+  variables?: Record<string, ValueType>,
   interpolationOptions?: InterpolationOptions,
 ) {}
 
 function configureHydrateText(
-  interpolationOptions?: InterpolationOptions,
+  interpolationOptions: InterpolationOptions,
 ) => typeof hydrateText;
 ```
+
+Check out [types.ts](./src/types.ts) file for more information.
 
 ## Background
 

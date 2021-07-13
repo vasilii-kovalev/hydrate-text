@@ -1,13 +1,11 @@
-import { InterpolationOptions } from "./types";
+import { DefaultPrefix, DefaultSuffix, InterpolationOptions } from "./types";
 
-const DEFAULT_INTERPOLATION_OPTIONS: InterpolationOptions = {
+const DEFAULT_INTERPOLATION_OPTIONS: InterpolationOptions<
+  DefaultPrefix,
+  DefaultSuffix
+> = {
   prefix: "{",
   suffix: "}",
 };
 
-const EMPTY_INTERPOLATION_OPTIONS: InterpolationOptions = {
-  prefix: "",
-  suffix: "",
-};
-
-export { DEFAULT_INTERPOLATION_OPTIONS, EMPTY_INTERPOLATION_OPTIONS };
+export { DEFAULT_INTERPOLATION_OPTIONS };

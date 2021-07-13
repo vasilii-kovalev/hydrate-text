@@ -22,4 +22,13 @@ const escapeRegExp = (value?: string): string => {
   return string.replace(reRegExpChar, "\\$&");
 };
 
-export { escapeRegExp };
+/*
+  Source: https://github.com/lodash/lodash/blob/master/isUndefined.js
+
+  Checks if `value` is `undefined`.
+*/
+const isUndefined = (value: unknown): value is undefined => {
+  return value === undefined;
+};
+
+export { escapeRegExp, isUndefined };
