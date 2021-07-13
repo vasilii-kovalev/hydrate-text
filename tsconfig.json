@@ -9,6 +9,6 @@
     "noEmit": true,
     "strict": true,
     "target": "ES2015",
-    "types": ["jest"]
+    "types": ["jest", "node"]
   }
 }

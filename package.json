@@ -1,6 +1,6 @@
 {
   "name": "hydrate-text",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "A small, dependency-free and strongly typed template engine.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -29,12 +29,13 @@
     "url": "https://github.com/vasilii-kovalev/hydrate-text/issues"
   },
   "scripts": {
-    "tslint": "tsc",
+    "tslint": "tsc -p tsconfig.tslint.json",
+    "types": "check-dts",
     "eslint:check": "eslint --ext .ts src --color",
     "eslint:fix": "yarn eslint:check --fix",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
-    "lint": "yarn tslint && yarn eslint:check && yarn prettier:check",
+    "lint": "yarn tslint && yarn types && yarn eslint:check && yarn prettier:check",
     "test": "jest",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -44,9 +45,11 @@
     "postversion": "git push && git push --tags"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.23",
-    "@typescript-eslint/eslint-plugin": "^4.28.1",
-    "@typescript-eslint/parser": "^4.28.1",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^16.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
+    "check-dts": "^0.5.3",
     "eslint": "^7.30.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.4",

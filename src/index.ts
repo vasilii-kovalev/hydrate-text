@@ -1,27 +1,17 @@
-import {
-  DEFAULT_INTERPOLATION_OPTIONS,
-  EMPTY_INTERPOLATION_OPTIONS,
-} from "./constants";
-import {
-  ConfigureHydrateText,
-  HydrateText,
-  InterpolationOptions,
-} from "./types";
-import { escapeRegExp } from "./utils";
+import { DEFAULT_INTERPOLATION_OPTIONS } from "./constants";
+import { ConfigureHydrateText, HydrateText } from "./types";
+import { escapeRegExp, isUndefined } from "./utils";
 
-const hydrateText: HydrateText = (
-  text,
-  variables = {},
-  interpolationOptions,
-) => {
-  const { prefix, suffix }: InterpolationOptions = interpolationOptions
-    ? {
-        ...EMPTY_INTERPOLATION_OPTIONS,
-        ...interpolationOptions,
-      }
-    : DEFAULT_INTERPOLATION_OPTIONS;
+const hydrateText: HydrateText = (text, variables, interpolationOptions) => {
+  if (isUndefined(variables)) {
+    return text;
+  }
 
-  const resultText = Object.entries(variables).reduce(
+  const { prefix, suffix } = isUndefined(interpolationOptions)
+    ? DEFAULT_INTERPOLATION_OPTIONS
+    : interpolationOptions;
+
+  const resultText = Object.entries(variables).reduce<string>(
     (resultText, [name, value]) => {
       const regExpSource = escapeRegExp(`${prefix}${name}${suffix}`);
       const regExp = new RegExp(regExpSource, "g");
@@ -37,18 +27,25 @@ const hydrateText: HydrateText = (
 const configureHydrateText: ConfigureHydrateText =
   interpolationOptionsFromConfigurer =>
   (text, variables, interpolationOptionsFromInnerFunction) => {
-    const interpolationOptions =
-      interpolationOptionsFromInnerFunction ??
-      interpolationOptionsFromConfigurer;
+    const interpolationOptions = isUndefined(
+      interpolationOptionsFromInnerFunction,
+    )
+      ? interpolationOptionsFromConfigurer
+      : interpolationOptionsFromInnerFunction;
 
-    return hydrateText(text, variables, interpolationOptions);
+    return hydrateText<
+      typeof text,
+      typeof interpolationOptions.prefix,
+      typeof interpolationOptions.suffix
+    >(text, variables, interpolationOptions);
   };
 
 export { configureHydrateText, hydrateText };
 export type {
   ConfigureHydrateText,
+  DefaultPrefix,
+  DefaultSuffix,
   HydrateText,
   InterpolationOptions,
   ValueType,
-  Variables,
 } from "./types";

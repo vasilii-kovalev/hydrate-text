@@ -7,7 +7,7 @@
     "outDir": "./dist/esm"
   },
   "exclude": [
-    "**/*.test.ts",
+    "**/tests/*.ts",
     /*
       Fixes error TS5055 ("Cannot write file '.../dist/types/....d.ts' because
       it would overwrite input file").
