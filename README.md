@@ -149,9 +149,9 @@ Check out [types.ts](./src/types.ts) file for more information.
 
 ## Known issues
 
-- If a string potentially has 8+ variables, an error "Type instantiation is excessively deep and possibly infinite" can occur. Until it is resolved, it is better to break the string into several pieces to avoid the error.
+- If a string has more than 8 variables, an error "Type instantiation is excessively deep and possibly infinite" can occur. In this case, it is better to break the string down into several pieces.
 
-  [Link to the original TypeScript issue](https://github.com/microsoft/TypeScript/issues/37613).
+  Check out the [original TypeScript issue](https://github.com/microsoft/TypeScript/issues/37613) for more information.
 
 ## Background
 
