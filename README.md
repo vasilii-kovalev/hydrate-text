@@ -32,28 +32,24 @@ A small, dependency-free and strongly typed template engine.
 ## Features
 
 - **Light-weight**. Less than 1 KiB (actual size depends on imported functions).
-- **Dependency-free**. Only bundled JavaScript files and TypeScript type declarations.
+- **Dependency-free**. Only bundled JavaScript files and TypeScript type declarations are included.
 - **Tree-shakable**. Only imported code comes to your bundle.
-- **ES Modules** and **CommonJS** syntax are supported.
 - Strongly typed with **TypeScript**. All types are exported alongside with the core functions.
 - **Flexible interpolation options change**. Change variables' markers in each function or use a special function to configure them once for further usage.
 
 ## Examples
 
 ```typescript
-// ES Modules syntax
 import { hydrateText } from "hydrate-text";
-// CommonJS syntax
-const hydrateText = require("hydrate-text").hydrateText;
 
-// 'Hello, John!'
+// "Hello, John!"
 console.log(
   hydrateText("Hello, {username}!", {
     username: "John",
   }),
 );
 
-// '/users/42'
+// "/users/42"
 console.log(
   hydrateText(
     "/users/:id",
@@ -96,10 +92,10 @@ import { configureHydrateText } from "hydrate-text";
 
 const hydrateRoute = configureHydrateText({ prefix: ":" });
 
-// '/users/42'
+// "/users/42"
 console.log(hydrateRoute("/users/:id", { id: 42 }));
 
-// '/users/42'
+// "/users/42"
 console.log(
   hydrateRoute(
     "/users/(id)",
@@ -153,9 +149,9 @@ Check out [types.ts](./src/types.ts) file for more information.
 
 ## Known issues
 
-- If a string potentially has 8+ variables, an error "Type instantiation is excessively deep and possibly infinite" can occur. Until it is resolved, it is better to break the string into several pieces to avoid the error.
+- If a string has more than 8 variables, an error "Type instantiation is excessively deep and possibly infinite" can occur. In this case, it is better to break the string down into several pieces.
 
-  Tracking the issue here: [Type instantiation is excessively deep and possibly infinite](https://github.com/vasilii-kovalev/hydrate-text/issues/27)
+  Check out the [original TypeScript issue](https://github.com/microsoft/TypeScript/issues/37613) for more information.
 
 ## Background
 
