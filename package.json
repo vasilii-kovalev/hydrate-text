@@ -1,13 +1,13 @@
 {
   "name": "hydrate-text",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "A small, dependency-free and strongly typed template engine.",
   "sideEffects": false,
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/types.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/types.d.ts",
   "files": [
-    "./dist"
+    "dist"
   ],
   "keywords": [
     "javascript",
