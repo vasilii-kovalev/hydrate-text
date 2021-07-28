@@ -30,7 +30,7 @@
   },
   "scripts": {
     "tslint": "tsc --project tsconfig.tslint.json",
-    "types": "check-dts",
+    "types": "check-dts **/*.ts",
     "eslint:check": "eslint src",
     "eslint:fix": "eslint src --fix",
     "prettier:check": "prettier . --check",
