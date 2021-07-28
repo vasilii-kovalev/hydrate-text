@@ -1,13 +1,13 @@
 {
   "name": "hydrate-text",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "A small, dependency-free and strongly typed template engine.",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
   "sideEffects": false,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/types.d.ts",
   "files": [
-    "/dist"
+    "./dist"
   ],
   "keywords": [
     "javascript",
@@ -37,9 +37,10 @@
     "prettier:fix": "prettier . --write",
     "lint": "npm-run-all tslint types eslint:check prettier:check",
     "test": "jest --coverage",
-    "build:esm": "tsc --project tsconfig.esm.json",
-    "build:cjs": "tsc --project tsconfig.cjs.json",
-    "build": "npm-run-all build:esm build:cjs",
+    "build:js": "tsc --project tsconfig.build.json",
+    "build:types": "tsc --project tsconfig.types.json",
+    "build": "npm-run-all build:js build:types",
+    "postbuild": "node postbuild.js",
     "prepare": "npm-run-all build",
     "prepublishOnly": "npm-run-all lint test",
     "postversion": "git push && git push --tags"
@@ -47,10 +48,10 @@
   "devDependencies": {
     "@swc-node/jest": "^1.3.1",
     "@types/jest": "^26.0.24",
-    "@types/node": "^16.3.1",
+    "@types/node": "^16.4.5",
     "@typescript-eslint/eslint-plugin": "4.28.5",
     "@typescript-eslint/parser": "4.28.5",
-    "check-dts": "^0.5.3",
+    "check-dts": "^0.5.4",
     "eslint": "7.31.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-import": "2.23.4",
