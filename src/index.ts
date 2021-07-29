@@ -96,14 +96,12 @@ const reHasRegExpChar = RegExp(reRegExpChar.source);
   Escapes the `RegExp` special characters "^", "$", "\", ".", "*", "+", "?",
   "(", ")", "[", "]", "{", "}", and "|" in `value`.
 */
-const escapeRegExp = (value?: string): string => {
-  const string = String(value ?? "");
-
-  if (!string || !reHasRegExpChar.test(string)) {
-    return string;
+const escapeRegExp = (value: string): string => {
+  if (!value || !reHasRegExpChar.test(value)) {
+    return value;
   }
 
-  return string.replace(reRegExpChar, "\\$&");
+  return value.replace(reRegExpChar, "\\$&");
 };
 
 /*
