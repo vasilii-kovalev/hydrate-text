@@ -1,5 +1,4 @@
-import { configureHydrateText, hydrateText } from "..";
-import { InterpolationOptions } from "../types";
+import { InterpolationOptions, configureHydrateText, hydrateText } from "..";
 
 // Test Id: 538c85cdc1d3a5cf2ae0077f35e2637b
 // THROWS Expected 1-3 arguments, but got 0.

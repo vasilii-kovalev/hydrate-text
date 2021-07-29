@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // import crypto from "crypto";
 
-import { configureHydrateText, hydrateText } from "..";
-import { InterpolationOptions } from "../types";
+import { InterpolationOptions, configureHydrateText, hydrateText } from "..";
 
 // Inspired by: https://stackoverflow.com/a/11869589/11293963
 // const getHash = (string: string) =>
