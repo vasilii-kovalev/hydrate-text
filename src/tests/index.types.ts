@@ -1,5 +1,4 @@
-import { configureHydrateText, hydrateText } from "..";
-import { InterpolationOptions } from "../types";
+import { InterpolationOptions, configureHydrateText, hydrateText } from "..";
 
 // Test Id: e3d1bd7920d571fae01eb16c3b8343ba
 hydrateText("");

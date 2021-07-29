@@ -1,11 +1,11 @@
 {
   "name": "hydrate-text",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "A small, dependency-free and strongly typed template engine.",
   "sideEffects": false,
   "type": "module",
   "main": "dist/index.js",
-  "types": "dist/types.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -37,10 +37,8 @@
     "prettier:fix": "prettier . --write",
     "lint": "npm-run-all tslint types eslint:check prettier:check",
     "test": "jest --coverage",
-    "build:js": "tsc --project tsconfig.build.json",
-    "build:types": "tsc --project tsconfig.types.json",
-    "build": "npm-run-all build:js build:types",
-    "postbuild": "node postbuild.js",
+    "build": "tsc --project tsconfig.build.json",
+    "postbuild": "prettier dist --write",
     "prepare": "npm-run-all build",
     "prepublishOnly": "npm-run-all lint test",
     "postversion": "git push && git push --tags"

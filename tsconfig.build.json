@@ -1,8 +1,17 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./dist",
     "noEmit": false,
     "outDir": "./dist"
   },
-  "exclude": ["**/tests/*.ts", "**/types.ts"]
+  "exclude": [
+    "**/tests/*",
+    /*
+      Fixes error TS5055 ("Cannot write file '.../dist/index.d.ts' because
+      it would overwrite input file").
+    */
+    "dist/*"
+  ]
 }
