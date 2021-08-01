@@ -30,7 +30,7 @@
   },
   "scripts": {
     "tslint": "tsc --project tsconfig.tslint.json",
-    "types": "check-dts **/*.ts",
+    "types": "check-dts",
     "eslint:check": "eslint src",
     "eslint:fix": "eslint src --fix",
     "prettier:check": "prettier . --check",
@@ -49,7 +49,7 @@
     "@types/node": "^16.4.5",
     "@typescript-eslint/eslint-plugin": "4.28.5",
     "@typescript-eslint/parser": "4.28.5",
-    "check-dts": "^0.5.4",
+    "check-dts": "^0.5.5",
     "eslint": "7.31.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-import": "2.23.4",
