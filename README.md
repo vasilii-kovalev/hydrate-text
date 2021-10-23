@@ -130,18 +130,18 @@ yarn add hydrate-text
 type ValueType = string | boolean | number | bigint;
 
 interface InterpolationOptions {
-  prefix: string;
-  suffix: string;
+	prefix: string;
+	suffix: string;
 }
 
 function hydrateText(
-  text: string,
-  variables?: Record<string, ValueType>,
-  interpolationOptions?: InterpolationOptions,
+	text: string,
+	variables?: Record<string, ValueType>,
+	interpolationOptions?: InterpolationOptions,
 ) {}
 
 function configureHydrateText(
-  interpolationOptions: InterpolationOptions,
+	interpolationOptions: InterpolationOptions,
 ) => typeof hydrateText;
 ```
 
