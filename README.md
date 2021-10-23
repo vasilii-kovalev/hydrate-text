@@ -44,21 +44,21 @@ import { hydrateText } from "hydrate-text";
 
 // "Hello, John!"
 console.log(
-	hydrateText("Hello, {username}!", {
-		username: "John",
-	}),
+  hydrateText("Hello, {username}!", {
+    username: "John",
+  }),
 );
 
 // "/users/42"
 console.log(
-	hydrateText(
-		"/users/:id",
-		{ id: 42 },
-		{
-			prefix: ":",
-			suffix: "",
-		},
-	),
+  hydrateText(
+    "/users/:id",
+    { id: 42 },
+    {
+      prefix: ":",
+      suffix: "",
+    },
+  ),
 );
 ```
 
@@ -66,21 +66,21 @@ TypeScript checks that all the variables defined in the given string are provide
 
 ```typescript
 console.log(
-	hydrateText(
-		"Hello, {username}!",
-		// No errors
-		{
-			username: "John",
-		},
-	),
+  hydrateText(
+    "Hello, {username}!",
+    // No errors
+    {
+      username: "John",
+    },
+  ),
 );
 
 console.log(
-	hydrateText(
-		"Hello, {username}!",
-		// Error: `username` is missing
-		{},
-	),
+  hydrateText(
+    "Hello, {username}!",
+    // Error: `username` is missing
+    {},
+  ),
 );
 ```
 
@@ -97,14 +97,14 @@ console.log(hydrateRoute("/users/:id", { id: 42 }));
 
 // "/users/42"
 console.log(
-	hydrateRoute(
-		"/users/(id)",
-		{ id: 42 },
-		{
-			prefix: "(",
-			suffix: ")",
-		},
-	),
+  hydrateRoute(
+    "/users/(id)",
+    { id: 42 },
+    {
+      prefix: "(",
+      suffix: ")",
+    },
+  ),
 );
 ```
 
@@ -130,18 +130,18 @@ yarn add hydrate-text
 type ValueType = string | boolean | number | bigint;
 
 interface InterpolationOptions {
-	prefix: string;
-	suffix: string;
+  prefix: string;
+  suffix: string;
 }
 
 function hydrateText(
-	text: string,
-	variables?: Record<string, ValueType>,
-	interpolationOptions?: InterpolationOptions,
+  text: string,
+  variables?: Record<string, ValueType>,
+  interpolationOptions?: InterpolationOptions,
 ) {}
 
 function configureHydrateText(
-	interpolationOptions: InterpolationOptions,
+  interpolationOptions: InterpolationOptions,
 ) => typeof hydrateText;
 ```
 
