@@ -48,6 +48,7 @@ type GetVariables<
 	Text extends string,
 	Prefix extends string,
 	Suffix extends string,
+	// The helper's usage is inspired by: https://devblogs.microsoft.com/typescript/announcing-typescript-4-5-beta/#tailrec-conditional
 > = GetVariablesHelper<Text, Prefix, Suffix, never>;
 
 interface InterpolationOptions<Prefix extends string, Suffix extends string> {
