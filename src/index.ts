@@ -1,40 +1,53 @@
 type ValueType = string | boolean | number | bigint;
 
-type GetVariables<
+type GetVariablesHelper<
 	Text extends string,
 	Prefix extends string,
 	Suffix extends string,
+	Accumulator,
 > = string extends Text
 	? string
 	: Prefix extends ""
 	? Suffix extends ""
 		? // Prefix === "", Suffix === ""
 		  Text extends `${infer Letter}${infer Rest}`
-			? Letter | GetVariables<Rest, Prefix, Suffix>
-			: never
+			? GetVariablesHelper<Rest, Prefix, Suffix, Letter | Accumulator>
+			: Accumulator
 		: // Prefix === "", Suffix !== ""
 		Text extends `${infer Variable}${Suffix}${infer Rest}`
-		? Variable | GetVariables<Rest, Prefix, Suffix>
-		: never
+		? GetVariablesHelper<Rest, Prefix, Suffix, Variable | Accumulator>
+		: Accumulator
 	: Suffix extends ""
 	? // Prefix !== "", Suffix === ""
 	  // eslint-disable-next-line @typescript-eslint/no-unused-vars
 	  Text extends `${infer _Start}${Prefix}${infer Variable}`
 		? Variable extends `${infer _Variable}${Prefix}${infer Rest}`
-			? _Variable | GetVariables<`${Prefix}${Rest}`, Prefix, Suffix>
-			: Variable
-		: never
+			? GetVariablesHelper<
+					`${Prefix}${Rest}`,
+					Prefix,
+					Suffix,
+					_Variable | Accumulator
+			  >
+			: Variable | Accumulator
+		: Accumulator
 	: // Prefix !== "", Suffix !== ""
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	Text extends `${infer _Start}${Prefix}${infer Variable}${Suffix}${infer Rest}`
 	? Variable extends `${infer _Start}${Prefix}${infer _Variable}`
-		? GetVariables<
+		? GetVariablesHelper<
 				`${_Start}${Prefix}${_Variable}${Suffix}${Rest}`,
 				Prefix,
-				Suffix
+				Suffix,
+				Accumulator
 		  >
-		: Variable | GetVariables<Rest, Prefix, Suffix>
-	: never;
+		: GetVariablesHelper<Rest, Prefix, Suffix, Variable | Accumulator>
+	: Accumulator;
+
+type GetVariables<
+	Text extends string,
+	Prefix extends string,
+	Suffix extends string,
+> = GetVariablesHelper<Text, Prefix, Suffix, never>;
 
 interface InterpolationOptions<Prefix extends string, Suffix extends string> {
 	prefix: Prefix;
@@ -144,11 +157,15 @@ const configureHydrateText: ConfigureHydrateText =
 			? interpolationOptionsFromConfigurer
 			: interpolationOptionsFromInnerFunction;
 
-		return hydrateText<
-			typeof text,
-			typeof interpolationOptions.prefix,
-			typeof interpolationOptions.suffix
-		>(text, variables, interpolationOptions);
+		return hydrateText(
+			text,
+			variables,
+			/*
+				`interpolationOptions` inherits `prefix` and `suffix` types from
+				`interpolationOptionsFromConfigurer`. See `ConfigureHydrateText` type.
+			*/
+			interpolationOptions as typeof interpolationOptionsFromInnerFunction,
+		);
 	};
 
 export { configureHydrateText, hydrateText };

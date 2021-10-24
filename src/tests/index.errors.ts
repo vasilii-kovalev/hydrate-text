@@ -867,4 +867,7 @@ replaceLetters("user", {
 });
 
 // THROWS Type instantiation is excessively deep and possibly infinite.
-replaceLetters("some very, very long text", {});
+replaceLetters(
+	"{s}{o}{m}{e}{ }{v}{er}{y}{,}{ v}{ery}{ l}{on}{g}{ t}{ex}{t}",
+	{},
+);
