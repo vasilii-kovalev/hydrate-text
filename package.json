@@ -35,12 +35,14 @@
 		"eslint:fix": "eslint src --fix",
 		"prettier:check": "prettier . --check",
 		"prettier:fix": "prettier . --write",
-		"lint": "npm-run-all tslint types eslint:check prettier:check",
+		"lint:check": "npm-run-all tslint types eslint:check prettier:check",
+		"lint:fix": "npm-run-all tslint types eslint:fix prettier:fix",
 		"test": "jest --coverage",
+		"check": "npm-run-all lint:check test",
 		"build": "tsc --project tsconfig.build.json",
 		"postbuild": "prettier dist --write",
 		"prepare": "npm-run-all build",
-		"prepublishOnly": "npm-run-all lint test",
+		"prepublishOnly": "npm-run-all check",
 		"postversion": "git push && git push --tags"
 	},
 	"devDependencies": {
