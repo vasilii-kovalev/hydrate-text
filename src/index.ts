@@ -1,3 +1,4 @@
+/* === Types === */
 type ValueType = string | boolean | number | bigint;
 
 type GetVariablesHelper<
@@ -87,6 +88,7 @@ interface ConfigureHydrateText {
 	) => string;
 }
 
+/* === Constants === */
 const DEFAULT_INTERPOLATION_OPTIONS: InterpolationOptions<
 	DefaultPrefix,
 	DefaultSuffix
@@ -95,6 +97,7 @@ const DEFAULT_INTERPOLATION_OPTIONS: InterpolationOptions<
 	suffix: "}",
 };
 
+/* === Utility functions === */
 /*
 	Used to match `RegExp`.
 	Syntax characters: http://ecma-international.org/ecma-262/7.0/#sec-patterns.
@@ -126,6 +129,7 @@ const isUndefined = (value: unknown): value is undefined => {
 	return value === undefined;
 };
 
+/* === Main functions === */
 const hydrateText: HydrateText = (text, variables, interpolationOptions) => {
 	if (isUndefined(variables)) {
 		return text;
@@ -162,7 +166,8 @@ const configureHydrateText: ConfigureHydrateText =
 			variables,
 			/*
 				`interpolationOptions` inherits `prefix` and `suffix` types from
-				`interpolationOptionsFromConfigurer`. See `ConfigureHydrateText` type.
+				`interpolationOptionsFromConfigurer`, so it is not necessary to define
+				the union.
 			*/
 			interpolationOptions as typeof interpolationOptionsFromInnerFunction,
 		);

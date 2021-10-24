@@ -145,7 +145,7 @@ function configureHydrateText(
 ) => typeof hydrateText;
 ```
 
-Check out [the types section](https://github.com/vasilii-kovalev/hydrate-text/blob/next/src/index.ts#L1-L88) for more information.
+Check out [the types section](https://github.com/vasilii-kovalev/hydrate-text/blob/next/src/index.ts#L1-L89) for more information.
 
 ## Background
 
