@@ -145,13 +145,7 @@ function configureHydrateText(
 ) => typeof hydrateText;
 ```
 
-Check out [types.ts](./src/types.ts) file for more information.
-
-## Known issues
-
-- If a string has more than 8 variables, an error "Type instantiation is excessively deep and possibly infinite" can occur. In this case, it is better to break the string down into several pieces.
-
-  Check out the [original TypeScript issue](https://github.com/microsoft/TypeScript/issues/37613) for more information.
+Check out [the types section](https://github.com/vasilii-kovalev/hydrate-text/blob/next/src/index.ts#L1-L88) for more information.
 
 ## Background
 
