@@ -4,7 +4,7 @@
 import { InterpolationOptions, configureHydrateText, hydrateText } from "..";
 
 // Inspired by: https://stackoverflow.com/a/11869589/11293963
-// const getHash = (string: string) =>
+// const getHash = (string: string): string =>
 // 	crypto.createHash("md5").update(string).digest("hex");
 
 const hydrateRoute = configureHydrateText({
@@ -2406,4 +2406,22 @@ test("Negative test case: 6001dba4f00a338fc6409af6788b0879", () => {
 	});
 
 	expect(resultText).toBe("{U}<S>(E)[R]");
+});
+
+test("Negative test case: 0c34709647d14c5f9a00631b75fbbfe1", () => {
+	// console.log(
+	//   getHash(`const resultText = replaceLetters(
+	//     "{s}{o}{m}{e}{ }{v}{er}{y}{,}{ v}{ery}{ l}{on}{g}{ t}{ex}{t}",
+	//     {},
+	//   )`),
+	// );
+	const resultText = replaceLetters(
+		"{s}{o}{m}{e}{ }{v}{er}{y}{,}{ v}{ery}{ l}{on}{g}{ t}{ex}{t}",
+		// @ts-expect-error
+		{},
+	);
+
+	expect(resultText).toBe(
+		"{s}{o}{m}{e}{ }{v}{er}{y}{,}{ v}{ery}{ l}{on}{g}{ t}{ex}{t}",
+	);
 });

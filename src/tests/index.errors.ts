@@ -866,8 +866,9 @@ replaceLetters("user", {
 	x: "-X-",
 });
 
-// THROWS Type instantiation is excessively deep and possibly infinite.
+// Test Id: 0c34709647d14c5f9a00631b75fbbfe1
 replaceLetters(
 	"{s}{o}{m}{e}{ }{v}{er}{y}{,}{ v}{ery}{ l}{on}{g}{ t}{ex}{t}",
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"{" | "}" | "g" | " " | "s" | "e" | "r" | "x" | "o" | "m" | "v" | "y" | "," | "l" | "n" | "t", ValueType>'.
 	{},
 );
