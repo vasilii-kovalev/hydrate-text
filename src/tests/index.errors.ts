@@ -7,7 +7,7 @@ hydrateText();
 // Test Id: c0b9f39290ad14fc77623be376dfaac2
 hydrateText(
 	"Hello, {username}!",
-	// THROWS not assignable to parameter of type 'Record<"username", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"username", ValueType>'.
 	{},
 );
 
@@ -25,21 +25,21 @@ hydrateText("Hello, {username}!", {
 
 // Test Id: fcab2ac81409176546edb81215cb36e3
 hydrateText("Hello, {username}!", {
-	// THROWS not assignable to parameter of type 'Record<"username", ValueType>'.
+	// THROWS Argument of type '{ USER_NAME: string; }' is not assignable to parameter of type 'Record<"username", ValueType>'.
 	USER_NAME: "John",
 });
 
 // Test Id: 4a15b9e240f46eba186c41d0f4664e96
 hydrateText("Hello, {username}!", {
 	username: "John",
-	// THROWS not assignable to parameter of type 'Record<"username", ValueType>'.
+	// THROWS Argument of type '{ username: string; id: number; }' is not assignable to parameter of type 'Record<"username", ValueType>'.
 	id: 42,
 });
 
 // Test Id: 432b9aa3ca520135b7c26882b8673e3a
 hydrateText(
 	"{firstName} {lastName}",
-	// THROWS not assignable to parameter of type 'Record<"firstName" | "lastName", ValueType>'.
+	// THROWS Argument of type '{ firstName: string; }' is not assignable to parameter of type 'Record<"firstName" | "lastName", ValueType>'.
 	{
 		firstName: "John",
 	},
@@ -48,7 +48,7 @@ hydrateText(
 // Test Id: 126b3de3b75053ad49d66743f0c8f274
 hydrateText(
 	"{firstName} {lastName}",
-	// THROWS not assignable to parameter of type 'Record<"firstName" | "lastName", ValueType>'.
+	// THROWS Argument of type '{ lastName: string; }' is not assignable to parameter of type 'Record<"firstName" | "lastName", ValueType>'.
 	{
 		lastName: "Doe",
 	},
@@ -57,87 +57,87 @@ hydrateText(
 // Test Id: ebd0a6612f82a8ed0031d9e059ef0615
 hydrateText(
 	"Active: {isActive}",
-	// THROWS not assignable to parameter of type 'Record<"isActive", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"isActive", ValueType>'.
 	{},
 );
 
 // Test Id: 03cb3b83ce958f1812469d094b6cdfae
 hydrateText("Active: {isActive}", {
-	// THROWS not assignable to parameter of type 'Record<"isActive", ValueType>'.
+	// THROWS Argument of type '{ IS_ACTIVE: boolean; }' is not assignable to parameter of type 'Record<"isActive", ValueType>'.
 	IS_ACTIVE: true,
 });
 
 // Test Id: 0b3f978b784258a5f01b26fc805f9c6e
 hydrateText("Active: {isActive}", {
 	isActive: true,
-	// THROWS not assignable to parameter of type 'Record<"isActive", ValueType>'.
+	// THROWS Argument of type '{ isActive: true; id: number; }' is not assignable to parameter of type 'Record<"isActive", ValueType>'.
 	id: 42,
 });
 
 // Test Id: b857c06caab24cdc873168a7aff76206
 hydrateText(
 	"Seconds: {seconds}",
-	// THROWS not assignable to parameter of type 'Record<"seconds", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"seconds", ValueType>'.
 	{},
 );
 
 // Test Id: 8e59d5c4458f80f22cc1bb24502ffc99
 hydrateText("Seconds: {seconds}", {
-	// THROWS not assignable to parameter of type 'Record<"seconds", ValueType>'.
+	// THROWS Argument of type '{ SECONDS: number; }' is not assignable to parameter of type 'Record<"seconds", ValueType>'.
 	SECONDS: 1_000_000,
 });
 
 // Test Id: d92b0750a9e4c02c76844b6744ee2573
 hydrateText("Seconds: {seconds}", {
 	seconds: 1_000_000,
-	// THROWS not assignable to parameter of type 'Record<"seconds", ValueType>'.
+	// THROWS Argument of type '{ seconds: number; id: number; }' is not assignable to parameter of type 'Record<"seconds", ValueType>'.
 	id: 42,
 });
 
 // Test Id: 306c99b7df15ec74284c55546c12a78f
 hydrateText(
 	"milliseconds: {milliseconds}",
-	// THROWS not assignable to parameter of type 'Record<"milliseconds", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"milliseconds", ValueType>'.
 	{},
 );
 
 // Test Id: 560e0c8cadd217f0ae283e385ae3c3af
 hydrateText("milliseconds: {milliseconds}", {
-	// THROWS not assignable to parameter of type 'Record<"milliseconds", ValueType>'.
+	// THROWS Argument of type '{ MILLISECONDS: bigint; }' is not assignable to parameter of type 'Record<"milliseconds", ValueType>'.
 	MILLISECONDS: BigInt(9007199254740991),
 });
 
 // Test Id: 6f33cc35f75acf0daf730f245d5feb1b
 hydrateText("milliseconds: {milliseconds}", {
 	milliseconds: BigInt(9007199254740991),
-	// THROWS not assignable to parameter of type 'Record<"milliseconds", ValueType>'.
+	// THROWS Argument of type '{ milliseconds: bigint; id: number; }' is not assignable to parameter of type 'Record<"milliseconds", ValueType>'.
 	id: 42,
 });
 
 // Test Id: 3c30106444675dad01d6e308ea5298e5
 hydrateText(
 	"Hello, {{username}}!",
-	// THROWS not assignable to parameter of type 'Record<"username", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"username", ValueType>'.
 	{},
 );
 
 // Test Id: c8259b5a3f9405752fb2b709ed4fcbc9
 hydrateText("Hello, {{username}}!", {
-	// THROWS not assignable to parameter of type 'Record<"username", ValueType>'.
+	// THROWS Argument of type '{ USER_NAME: string; }' is not assignable to parameter of type 'Record<"username", ValueType>'.
 	USER_NAME: "John",
 });
 
 // Test Id: 600317192a267b2cd4f60e4b75e6ef1e
 hydrateText("Hello, {{username}}!", {
 	username: "John",
-	// THROWS not assignable to parameter of type 'Record<"username", ValueType>'.
+	// THROWS Argument of type '{ username: string; id: number; }' is not assignable to parameter of type 'Record<"username", ValueType>'.
 	id: 42,
 });
 
 // Test Id: 48795b7f39073c2426d99a61682ae5e7
 hydrateText(
 	"Hello, {username}!",
-	// THROWS not assignable to parameter of type 'Record<"username", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"username", ValueType>'.
 	{},
 	{},
 );
@@ -148,7 +148,7 @@ hydrateText(
 	{
 		username: "John",
 	},
-	// THROWS not assignable to parameter of type 'InterpolationOptions<"{", "}">'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'InterpolationOptions<"{", "}">'.
 	{},
 );
 
@@ -158,7 +158,7 @@ hydrateText(
 	{
 		username: "John",
 	},
-	// THROWS not assignable to parameter of type 'InterpolationOptions<"{", "}">'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'InterpolationOptions<"{", "}">'.
 	{},
 );
 
@@ -168,7 +168,7 @@ hydrateText(
 	{
 		username: "John",
 	},
-	// THROWS not assignable to parameter of type 'InterpolationOptions<"{", "}">'.
+	// THROWS Argument of type '{ prefix: "{"; }' is not assignable to parameter of type 'InterpolationOptions<"{", "}">'.
 	{
 		prefix: "{",
 	},
@@ -180,7 +180,7 @@ hydrateText(
 	{
 		username: "John",
 	},
-	// THROWS not assignable to parameter of type 'InterpolationOptions<"{", "}">'.
+	// THROWS Argument of type '{ prefix: "{"; }' is not assignable to parameter of type 'InterpolationOptions<"{", "}">'.
 	{
 		prefix: "{",
 	},
@@ -192,7 +192,7 @@ hydrateText(
 	{
 		username: "John",
 	},
-	// THROWS not assignable to parameter of type 'InterpolationOptions<"{", "}">'.
+	// THROWS Argument of type '{ suffix: "}"; }' is not assignable to parameter of type 'InterpolationOptions<"{", "}">'.
 	{
 		suffix: "}",
 	},
@@ -204,7 +204,7 @@ hydrateText(
 	{
 		username: "John",
 	},
-	// THROWS not assignable to parameter of type 'InterpolationOptions<"{", "}">'.
+	// THROWS Argument of type '{ suffix: "}"; }' is not assignable to parameter of type 'InterpolationOptions<"{", "}">'.
 	{
 		suffix: "}",
 	},
@@ -213,7 +213,7 @@ hydrateText(
 // Test Id: 0f446ad7b42fc3094ab94e1941a60a7b
 hydrateText(
 	"Hello, {username}!",
-	// THROWS not assignable to parameter of type 'Record<"username", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"username", ValueType>'.
 	{},
 	{
 		prefix: "{",
@@ -225,7 +225,7 @@ hydrateText(
 hydrateText(
 	"Hello, {username}!",
 	{
-		// THROWS not assignable to parameter of type 'Record<"username", ValueType>'.
+		// THROWS Argument of type '{ USER_NAME: string; }' is not assignable to parameter of type 'Record<"username", ValueType>'.
 		USER_NAME: "John",
 	},
 	{
@@ -239,7 +239,7 @@ hydrateText(
 	"Hello, {username}!",
 	{
 		username: "John",
-		// THROWS not assignable to parameter of type 'Record<"username", ValueType>'.
+		// THROWS Argument of type '{ username: string; id: number; }' is not assignable to parameter of type 'Record<"username", ValueType>'.
 		id: 42,
 	},
 	{
@@ -251,7 +251,7 @@ hydrateText(
 // Test Id: 70c1cba604a5c4ea8eaffc5c732c963b
 hydrateText(
 	"Hello, {{username}}!",
-	// THROWS not assignable to parameter of type 'Record<"username", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"username", ValueType>'.
 	{},
 	{
 		prefix: "{{",
@@ -263,7 +263,7 @@ hydrateText(
 hydrateText(
 	"Hello, {{username}}!",
 	{
-		// THROWS not assignable to parameter of type 'Record<"username", ValueType>'.
+		// THROWS Argument of type '{ USER_NAME: string; }' is not assignable to parameter of type 'Record<"username", ValueType>'.
 		USER_NAME: "John",
 	},
 	{
@@ -277,7 +277,7 @@ hydrateText(
 	"Hello, {{username}}!",
 	{
 		username: "John",
-		// THROWS not assignable to parameter of type 'Record<"username", ValueType>'.
+		// THROWS Argument of type '{ username: string; id: number; }' is not assignable to parameter of type 'Record<"username", ValueType>'.
 		id: 42,
 	},
 	{
@@ -289,7 +289,7 @@ hydrateText(
 // Test Id: 019d348956f4a1c679ac5412cd1abf60
 hydrateText(
 	"Hello, ${username}!",
-	// THROWS not assignable to parameter of type 'Record<"username", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"username", ValueType>'.
 	{},
 	{
 		prefix: "${",
@@ -301,7 +301,7 @@ hydrateText(
 hydrateText(
 	"Hello, ${username}!",
 	{
-		// THROWS not assignable to parameter of type 'Record<"username", ValueType>'.
+		// THROWS Argument of type '{ USER_NAME: string; }' is not assignable to parameter of type 'Record<"username", ValueType>'.
 		USER_NAME: "John",
 	},
 	{
@@ -315,7 +315,7 @@ hydrateText(
 	"Hello, ${username}!",
 	{
 		username: "John",
-		// THROWS not assignable to parameter of type 'Record<"username", ValueType>'.
+		// THROWS Argument of type '{ username: string; id: number; }' is not assignable to parameter of type 'Record<"username", ValueType>'.
 		id: 42,
 	},
 	{
@@ -327,7 +327,7 @@ hydrateText(
 // Test Id: 12a32a5b6289285455b978bccb3160ca
 hydrateText(
 	":firstName: :lastName:",
-	// THROWS not assignable to parameter of type 'Record<"firstName" | "lastName", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"firstName" | "lastName", ValueType>'.
 	{},
 	{
 		prefix: ":",
@@ -338,7 +338,7 @@ hydrateText(
 // Test Id: 8fbb51b6cb87f8efaccbf1efe4e40792
 hydrateText(
 	":firstName: :lastName:",
-	// THROWS not assignable to parameter of type 'Record<"firstName" | "lastName", ValueType>'.
+	// THROWS Argument of type '{ firstName: string; }' is not assignable to parameter of type 'Record<"firstName" | "lastName", ValueType>'.
 	{
 		firstName: "John",
 	},
@@ -351,7 +351,7 @@ hydrateText(
 // Test Id: e27328ae9324195ae0d56f654846f8df
 hydrateText(
 	":firstName: :lastName:",
-	// THROWS not assignable to parameter of type 'Record<"firstName" | "lastName", ValueType>'.
+	// THROWS Argument of type '{ lastName: string; }' is not assignable to parameter of type 'Record<"firstName" | "lastName", ValueType>'.
 	{
 		lastName: "Doe",
 	},
@@ -367,7 +367,7 @@ hydrateText(
 	{
 		firstName: "John",
 		lastName: "Doe",
-		// THROWS not assignable to parameter of type 'Record<"firstName" | "lastName", ValueType>'.
+		// THROWS Argument of type '{ firstName: string; lastName: string; id: number; }' is not assignable to parameter of type 'Record<"firstName" | "lastName", ValueType>'.
 		id: 42,
 	},
 	{
@@ -379,7 +379,7 @@ hydrateText(
 // Test Id: dca4da146c2a1a3151758d3a489cf625
 hydrateText(
 	"/user/:id",
-	// THROWS not assignable to parameter of type 'Record<"id", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"id", ValueType>'.
 	{},
 	{
 		prefix: ":",
@@ -391,7 +391,7 @@ hydrateText(
 hydrateText(
 	"/user/:id",
 	{
-		// THROWS not assignable to parameter of type 'Record<"id", ValueType>'.
+		// THROWS Argument of type '{ ID: number; }' is not assignable to parameter of type 'Record<"id", ValueType>'.
 		ID: 42,
 	},
 	{
@@ -405,7 +405,7 @@ hydrateText(
 	"/user/:id",
 	{
 		id: 42,
-		// THROWS assignable to parameter of type 'Record<"id", ValueType>'.
+		// THROWS Argument of type '{ id: number; username: string; }' is not assignable to parameter of type 'Record<"id", ValueType>'.
 		username: "John",
 	},
 	{
@@ -417,7 +417,7 @@ hydrateText(
 // Test Id: 2fc2c3180c1d6d00f46b61de4da70490
 hydrateText(
 	"/user/:id:username",
-	// THROWS not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
 	{},
 	{
 		prefix: ":",
@@ -428,7 +428,7 @@ hydrateText(
 // Test Id: 3cd3cb9b568dfc4278706a1b9a3569be
 hydrateText(
 	"/user/:id:username",
-	// THROWS not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
+	// THROWS Argument of type '{ id: number; }' is not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
 	{
 		id: 42,
 	},
@@ -441,7 +441,7 @@ hydrateText(
 // Test Id: 77fe5fa145abed7db81f53a7bcfef672
 hydrateText(
 	"/user/:id:username",
-	// THROWS not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
+	// THROWS Argument of type '{ username: string; }' is not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
 	{
 		username: "John",
 	},
@@ -457,7 +457,7 @@ hydrateText(
 	{
 		id: 42,
 		username: "John",
-		// THROWS not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
+		// THROWS Argument of type '{ id: number; username: string; isActive: boolean; }' is not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
 		isActive: true,
 	},
 	{
@@ -469,7 +469,7 @@ hydrateText(
 // Test Id: f8c0e7dfd3c704d8d2cbf87ea79eb7f3
 hydrateText(
 	"username: - Software Engineer",
-	// THROWS not assignable to parameter of type 'Record<"username", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"username", ValueType>'.
 	{},
 	{
 		prefix: "",
@@ -481,7 +481,7 @@ hydrateText(
 hydrateText(
 	"username: - Software Engineer",
 	{
-		// THROWS not assignable to parameter of type 'Record<"username", ValueType>'.
+		// THROWS Argument of type '{ USER_NAME: string; }' is not assignable to parameter of type 'Record<"username", ValueType>'.
 		USER_NAME: "John",
 	},
 	{
@@ -495,7 +495,7 @@ hydrateText(
 	"username: - Software Engineer",
 	{
 		username: "John",
-		// THROWS not assignable to parameter of type 'Record<"username", ValueType>'.
+		// THROWS Argument of type '{ username: string; id: number; }' is not assignable to parameter of type 'Record<"username", ValueType>'.
 		id: 42,
 	},
 	{
@@ -507,7 +507,7 @@ hydrateText(
 // Test Id: f15576c900a23aece67b8790f75d5c5b
 hydrateText(
 	"user",
-	// THROWS not assignable to parameter of type 'Record<"u" | "s" | "e" | "r", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"u" | "s" | "e" | "r", ValueType>'.
 	{},
 	{
 		prefix: "",
@@ -518,7 +518,7 @@ hydrateText(
 // Test Id: b4395ed60e6df24fcaf8c64a73506564
 hydrateText(
 	"user",
-	// THROWS not assignable to parameter of type 'Record<"u" | "s" | "e" | "r", ValueType>'.
+	// THROWS Argument of type '{ u: string; }' is not assignable to parameter of type 'Record<"u" | "s" | "e" | "r", ValueType>'.
 	{
 		u: "{U}",
 	},
@@ -531,7 +531,7 @@ hydrateText(
 // Test Id: 5301902ac4bc03f4d189138ff78aa7dd
 hydrateText(
 	"user",
-	// THROWS not assignable to parameter of type 'Record<"u" | "s" | "e" | "r", ValueType>'.
+	// THROWS Argument of type '{ u: string; s: string; }' is not assignable to parameter of type 'Record<"u" | "s" | "e" | "r", ValueType>'.
 	{
 		u: "{U}",
 		s: "<S>",
@@ -550,7 +550,7 @@ hydrateText(
 		s: "<S>",
 		e: "(E)",
 		r: "[R]",
-		// THROWS not assignable to parameter of type 'Record<"u" | "s" | "e" | "r", ValueType>'.
+		// THROWS Argument of type '{ u: string; s: string; e: string; r: string; x: string; }' is not assignable to parameter of type 'Record<"u" | "s" | "e" | "r", ValueType>'.
 		x: "-X-",
 	},
 	{
@@ -562,7 +562,7 @@ hydrateText(
 // Test Id: 62f126044c723f6c33cf0b3e4b49cd1e
 hydrateText<"/user/:id/:username/", ":", "/">(
 	"/user/:id/:username/",
-	// THROWS not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
 	{},
 	{
 		prefix: ":",
@@ -573,7 +573,7 @@ hydrateText<"/user/:id/:username/", ":", "/">(
 // Test Id: 9e145f684808799c252a3b9dcc83b0a8
 hydrateText<"/user/:id/:username/", ":", "/">(
 	"/user/:id/:username/",
-	// THROWS not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
+	// THROWS Argument of type '{ id: number; }' is not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
 	{
 		id: 42,
 	},
@@ -586,7 +586,7 @@ hydrateText<"/user/:id/:username/", ":", "/">(
 // Test Id: 1d183b36f9bebd6611286603ac6ea03f
 hydrateText<"/user/:id/:username/", ":", "/">(
 	"/user/:id/:username/",
-	// THROWS not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
+	// THROWS Argument of type '{ username: string; }' is not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
 	{
 		username: "John",
 	},
@@ -602,7 +602,7 @@ hydrateText<"/user/:id/:username/", ":", "/">(
 	{
 		id: 42,
 		username: "John",
-		// THROWS not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
+		// THROWS Argument of type '{ id: number; username: string; isActive: boolean; }' is not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
 		isActive: true,
 	},
 	{
@@ -628,7 +628,7 @@ hydrateText<"/user/:id/:username/", ":", "/">(
 // Test Id: bea0800f7db8cac5f8bc89cf890f8c98
 hydrateText<"/user/:id/:username/", ":", "/">(
 	"/user/:id/:username/",
-	// THROWS not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
 	{},
 	{
 		prefix: ":",
@@ -639,7 +639,7 @@ hydrateText<"/user/:id/:username/", ":", "/">(
 // Test Id: 210ad704a05d205283be9bd851ee9da8
 hydrateText<"/user/:id/:username/", ":", "/">(
 	"/user/:id/:username/",
-	// THROWS not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
+	// THROWS Argument of type '{ id: number; }' is not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
 	{
 		id: 42,
 	},
@@ -652,7 +652,7 @@ hydrateText<"/user/:id/:username/", ":", "/">(
 // Test Id: b7e74a2db86e541d3dad8fdb361b73d5
 hydrateText<"/user/:id/:username/", ":", "/">(
 	"/user/:id/:username/",
-	// THROWS not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
+	// THROWS Argument of type '{ username: string; }' is not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
 	{
 		username: "John",
 	},
@@ -668,7 +668,7 @@ hydrateText<"/user/:id/:username/", ":", "/">(
 	{
 		id: 42,
 		username: "John",
-		// THROWS not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
+		// THROWS Argument of type '{ id: number; username: string; isActive: boolean; }' is not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
 		isActive: true,
 	},
 	{
@@ -689,34 +689,34 @@ hydrateRoute();
 // Test Id: 4f4fd053c4fea88c9b5986fa6e78571c
 hydrateRoute(
 	"/user/:id",
-	// THROWS not assignable to parameter of type 'Record<"id", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"id", ValueType>'.
 	{},
 );
 
 // Test Id: bbd65218fd0703080e2709b24364df2b
 hydrateRoute("/user/:id", {
-	// THROWS not assignable to parameter of type 'Record<"id", ValueType>'.
+	// THROWS Argument of type '{ ID: number; }' is not assignable to parameter of type 'Record<"id", ValueType>'.
 	ID: 42,
 });
 
 // Test Id: 6cd689e4ed7bc823683d994ebb393757
 hydrateRoute("/user/:id", {
 	id: 42,
-	// THROWS not assignable to parameter of type 'Record<"id", ValueType>'.
+	// THROWS Argument of type '{ id: number; username: string; }' is not assignable to parameter of type 'Record<"id", ValueType>'.
 	username: "John",
 });
 
 // Test Id: e95f207e9eaa2b21feaff941f6cd7038
 hydrateRoute(
 	"/user/:id:username",
-	// THROWS not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
 	{},
 );
 
 // Test Id: ea721ecccc2112a68ad21d47d240777a
 hydrateRoute(
 	"/user/:id:username",
-	// THROWS not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
+	// THROWS Argument of type '{ username: string; }' is not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
 	{
 		username: "John",
 	},
@@ -725,7 +725,7 @@ hydrateRoute(
 // Test Id: 38bb62fb4be465bc27a6bd5c0299bb52
 hydrateRoute(
 	"/user/:id:username",
-	// THROWS not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
+	// THROWS Argument of type '{ id: number; }' is not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
 	{
 		id: 42,
 	},
@@ -735,14 +735,14 @@ hydrateRoute(
 hydrateRoute("/user/:id:username", {
 	id: 42,
 	username: "John",
-	// THROWS not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
+	// THROWS Argument of type '{ id: number; username: string; isActive: boolean; }' is not assignable to parameter of type 'Record<"username" | "id", ValueType>'.
 	isActive: true,
 });
 
 // Test Id: 92b41b81af940608db31d005741a6c6c
 hydrateRoute(
 	"/user/(id)",
-	// THROWS not assignable to parameter of type 'Record<"id", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"id", ValueType>'.
 	{},
 	{
 		prefix: "(",
@@ -754,7 +754,7 @@ hydrateRoute(
 hydrateRoute(
 	"/user/(id)",
 	{
-		// THROWS not assignable to parameter of type 'Record<"id", ValueType>'.
+		// THROWS Argument of type '{ ID: number; }' is not assignable to parameter of type 'Record<"id", ValueType>'.
 		ID: 42,
 	},
 	{
@@ -768,7 +768,7 @@ hydrateRoute(
 	"/user/(id)",
 	{
 		id: 42,
-		// THROWS not assignable to parameter of type 'Record<"id", ValueType>'.
+		// THROWS Argument of type '{ id: number; username: string; }' is not assignable to parameter of type 'Record<"id", ValueType>'.
 		username: "John",
 	},
 	{
@@ -783,7 +783,7 @@ hydrateRoute(
 	{
 		id: 42,
 	},
-	// THROWS not assignable to parameter of type 'InterpolationOptions<"(", "">'.
+	// THROWS Argument of type '{ prefix: "("; }' is not assignable to parameter of type 'InterpolationOptions<"(", "">'.
 	{
 		prefix: "(",
 	},
@@ -793,7 +793,7 @@ hydrateRoute(
 hydrateRoute(
 	"/user/(idundefined",
 	{
-		// THROWS not assignable to parameter of type 'Record<"idundefined", ValueType>'.
+		// THROWS Argument of type '{ id: number; }' is not assignable to parameter of type 'Record<"idundefined", ValueType>'.
 		id: 42,
 	},
 	{
@@ -807,7 +807,7 @@ hydrateRoute(
 	{
 		id: 42,
 	},
-	// THROWS not assignable to parameter of type 'InterpolationOptions<":", ")">'.
+	// THROWS Argument of type '{ suffix: ")"; }' is not assignable to parameter of type 'InterpolationOptions<":", ")">'.
 	{
 		suffix: ")",
 	},
@@ -819,7 +819,7 @@ hydrateRoute(
 	{
 		id: 42,
 	},
-	// THROWS not assignable to parameter of type 'InterpolationOptions<":", ")">'.
+	// THROWS Argument of type '{ suffix: ")"; }' is not assignable to parameter of type 'InterpolationOptions<":", ")">'.
 	{
 		suffix: ")",
 	},
@@ -833,14 +833,14 @@ const replaceLetters = configureHydrateText({
 // Test Id: bf02495a5023dea7a9f35e7849b2ba1c
 replaceLetters(
 	"user",
-	// THROWS not assignable to parameter of type 'Record<"u" | "s" | "e" | "r", ValueType>'.
+	// THROWS Argument of type '{}' is not assignable to parameter of type 'Record<"u" | "s" | "e" | "r", ValueType>'.
 	{},
 );
 
 // Test Id: f4460942636b17ae0beaa197dc5cb8ab
 replaceLetters(
 	"user",
-	// THROWS not assignable to parameter of type 'Record<"u" | "s" | "e" | "r", ValueType>'.
+	// THROWS Argument of type '{ u: string; }' is not assignable to parameter of type 'Record<"u" | "s" | "e" | "r", ValueType>'.
 	{
 		u: "{U}",
 	},
@@ -849,7 +849,7 @@ replaceLetters(
 // Test Id: e90c03a47d7cbc56fb2f5dd44bebe162
 replaceLetters(
 	"user",
-	// THROWS not assignable to parameter of type 'Record<"u" | "s" | "e" | "r", ValueType>'.
+	// THROWS Argument of type '{ u: string; s: string; }' is not assignable to parameter of type 'Record<"u" | "s" | "e" | "r", ValueType>'.
 	{
 		u: "{U}",
 		s: "<S>",
@@ -862,7 +862,7 @@ replaceLetters("user", {
 	s: "<S>",
 	e: "(E)",
 	r: "[R]",
-	// THROWS not assignable to parameter of type 'Record<"u" | "s" | "e" | "r", ValueType>'.
+	// THROWS Argument of type '{ u: string; s: string; e: string; r: string; x: string; }' is not assignable to parameter of type 'Record<"u" | "s" | "e" | "r", ValueType>'.
 	x: "-X-",
 });
 
