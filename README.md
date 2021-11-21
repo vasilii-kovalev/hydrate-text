@@ -23,7 +23,7 @@ A small, dependency-free and strongly typed template engine.
 [minzip-size-badge]: https://flat.badgen.net/bundlephobia/minzip/hydrate-text
 [size-link]: https://bundlephobia.com/package/hydrate-text
 [types-badge]: https://flat.badgen.net/npm/types/hydrate-text
-[types-link]: https://github.com/vasilii-kovalev/hydrate-text/blob/main/src/index.ts#L1-L75
+[types-link]: https://github.com/vasilii-kovalev/hydrate-text/blob/main/src/index.ts#L1-L90
 [coverage-badge]: https://flat.badgen.net/coveralls/c/github/vasilii-kovalev/hydrate-text
 [coverage-link]: https://coveralls.io/github/vasilii-kovalev/hydrate-text
 [vulnerabilities-badge]: https://flat.badgen.net/snyk/vasilii-kovalev/hydrate-text
@@ -145,13 +145,14 @@ function configureHydrateText(
 ) => typeof hydrateText;
 ```
 
-Check out [types.ts](./src/types.ts) file for more information.
+Check out the "Types" section in the [source file](./src/index.ts) for more information.
 
 ## Known issues
 
-- If a string has more than 8 variables, an error "Type instantiation is excessively deep and possibly infinite" can occur. In this case, it is better to break the string down into several pieces.
+- SyntaxError: Unexpected token 'export'.
 
-  Check out the [original TypeScript issue](https://github.com/microsoft/TypeScript/issues/37613) for more information.
+  The problem appears when running tests using Jest. That's because of lack of CommonJS support. A solution can be found [here](https://github.com/vasilii-kovalev/hydrate-text/issues/32).
+  Not supporting CommonJS is intended, since all the industry is moving towards ES modules, and CommonJS will be retired at some point.
 
 ## Background
 

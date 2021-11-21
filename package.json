@@ -1,63 +1,65 @@
 {
-  "name": "hydrate-text",
-  "version": "5.0.2",
-  "description": "A small, dependency-free and strongly typed template engine.",
-  "sideEffects": false,
-  "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "javascript",
-    "string",
-    "template engine",
-    "template",
-    "tree-shakable",
-    "typescript",
-    "zero-dependency"
-  ],
-  "author": "Vasilii Kovalev <vasilii.kovalev95@yandex.ru>",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vasilii-kovalev/hydrate-text.git"
-  },
-  "homepage": "https://github.com/vasilii-kovalev/hydrate-text#readme",
-  "bugs": {
-    "url": "https://github.com/vasilii-kovalev/hydrate-text/issues"
-  },
-  "scripts": {
-    "tslint": "tsc --project tsconfig.tslint.json",
-    "types": "check-dts **/*.ts",
-    "eslint:check": "eslint src",
-    "eslint:fix": "eslint src --fix",
-    "prettier:check": "prettier . --check",
-    "prettier:fix": "prettier . --write",
-    "lint": "npm-run-all tslint types eslint:check prettier:check",
-    "test": "jest --coverage",
-    "build": "tsc --project tsconfig.build.json",
-    "postbuild": "prettier dist --write",
-    "prepare": "npm-run-all build",
-    "prepublishOnly": "npm-run-all lint test",
-    "postversion": "git push && git push --tags"
-  },
-  "devDependencies": {
-    "@swc-node/jest": "^1.3.1",
-    "@types/jest": "^26.0.24",
-    "@types/node": "^16.4.5",
-    "@typescript-eslint/eslint-plugin": "4.28.5",
-    "@typescript-eslint/parser": "4.28.5",
-    "check-dts": "^0.5.4",
-    "eslint": "7.31.0",
-    "eslint-config-prettier": "8.3.0",
-    "eslint-plugin-import": "2.23.4",
-    "eslint-plugin-jest": "24.4.0",
-    "eslint-plugin-prettier": "3.4.0",
-    "jest": "^27.0.6",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.3.2",
-    "typescript": "^4.3.5"
-  }
+	"name": "hydrate-text",
+	"version": "5.1.0",
+	"description": "A small, dependency-free and strongly typed template engine.",
+	"sideEffects": false,
+	"type": "module",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"keywords": [
+		"javascript",
+		"string",
+		"template engine",
+		"template",
+		"tree-shakable",
+		"typescript",
+		"zero-dependency"
+	],
+	"author": "Vasilii Kovalev <vasilii.kovalev95@yandex.ru>",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vasilii-kovalev/hydrate-text.git"
+	},
+	"homepage": "https://github.com/vasilii-kovalev/hydrate-text#readme",
+	"bugs": {
+		"url": "https://github.com/vasilii-kovalev/hydrate-text/issues"
+	},
+	"scripts": {
+		"tslint": "tsc --project tsconfig.tslint.json",
+		"types": "check-dts",
+		"eslint:check": "eslint src",
+		"eslint:fix": "eslint src --fix",
+		"prettier:check": "prettier . --check",
+		"prettier:fix": "prettier . --write",
+		"lint:check": "npm-run-all tslint types eslint:check prettier:check",
+		"lint:fix": "npm-run-all tslint types eslint:fix prettier:fix",
+		"test": "jest --coverage",
+		"check": "npm-run-all lint:check test",
+		"build": "tsc --project tsconfig.build.json",
+		"postbuild": "prettier dist --write",
+		"prepare": "npm-run-all build",
+		"prepublishOnly": "npm-run-all check",
+		"postversion": "git push && git push --tags"
+	},
+	"devDependencies": {
+		"@swc-node/jest": "^1.4.1",
+		"@types/jest": "^27.0.3",
+		"@types/node": "^16.11.9",
+		"@typescript-eslint/eslint-plugin": "5.4.0",
+		"@typescript-eslint/parser": "5.4.0",
+		"check-dts": "^0.6.4",
+		"eslint": "8.3.0",
+		"eslint-config-prettier": "8.3.0",
+		"eslint-plugin-import": "2.25.3",
+		"eslint-plugin-jest": "25.2.4",
+		"eslint-plugin-prettier": "4.0.0",
+		"jest": "^27.3.1",
+		"npm-run-all": "^4.1.5",
+		"prettier": "^2.4.1",
+		"typescript": "^4.5.2"
+	}
 }

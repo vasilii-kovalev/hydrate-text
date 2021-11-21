@@ -1,7 +1,7 @@
 {
-  "collectCoverageFrom": ["src/index.ts"],
-  "testEnvironment": "node",
-  "transform": {
-    "^.+\\.ts$": "@swc-node/jest"
-  }
+	"collectCoverageFrom": ["src/index.ts"],
+	"testEnvironment": "node",
+	"transform": {
+		"^.+\\.ts$": "@swc-node/jest"
+	}
 }

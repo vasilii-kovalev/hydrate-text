@@ -1,4 +1,4 @@
 {
-  "extends": "./tsconfig.json",
-  "exclude": ["**/*.errors.ts"]
+	"extends": "./tsconfig.json",
+	"exclude": ["**/*.errors.ts"]
 }
