@@ -147,6 +147,13 @@ function configureHydrateText(
 
 Check out the "Types" section in the [source file](./src/index.ts) for more information.
 
+## Known issues
+
+- SyntaxError: Unexpected token 'export'.
+
+  The problem appears when running tests using Jest. That's because of lack of CommonJS support. A solution can be found [here](https://github.com/vasilii-kovalev/hydrate-text/issues/32).
+  Not supporting CommonJS is intended, since all the industry is moving towards ES modules, and CommonJS will be retired at some point.
+
 ## Background
 
 [Why I wrote "hydrate-text" library](https://vasilii-kovalev.github.io/blog/posts/why-i-wrote-hydrate-text-library)
